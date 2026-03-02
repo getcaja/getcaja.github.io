@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Caja — Visual Layout Design Tool</title>
+  <meta name="description" content="Design layouts visually with AI. Export clean Tailwind code. Free and open source.">
+  <link rel="icon" href="caja-icon.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { sans: ['Inter', 'system-ui', 'sans-serif'] },
+        },
+      },
+    }
+  </script>
+
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    @keyframes fade-up {
+      from { opacity: 0; transform: translateY(16px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fade-in {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    @keyframes blink { 50% { opacity: 0; } }
+
+    .fade-up { animation: fade-up 0.6s ease-out both; }
+    .fade-in { animation: fade-in 0.4s ease-out both; }
+    .d1 { animation-delay: 0.05s; }
+    .d2 { animation-delay: 0.12s; }
+    .d3 { animation-delay: 0.2s; }
+    .d4 { animation-delay: 0.3s; }
+    .d5 { animation-delay: 0.4s; }
+    .mock-node { transition: opacity 0.3s ease; }
+
+    @keyframes mcp-pulse {
+      0%   { outline-color: transparent; }
+      15%  { outline-color: #c7d2fe; }
+      55%  { outline-color: #818cf8; }
+      100% { outline-color: transparent; }
+    }
+    .mcp-flash {
+      outline: 2px solid transparent;
+      outline-offset: -1px;
+      animation: mcp-pulse 0.8s ease-out;
+    }
+
+  </style>
+</head>
+
+<body class="bg-[#09090b] text-white font-sans antialiased overflow-x-hidden">
+
+  <!-- NAV -->
+  <nav class="fade-in w-full bg-[#09090b]/80 backdrop-blur-xl">
+    <div class="max-w-6xl mx-auto px-6 h-12 flex items-center justify-between">
+      <a href="/" class="flex items-center gap-2">
+        <img src="caja-icon.png" alt="Caja" width="22" height="22" class="rounded">
+        <span class="font-semibold text-base text-white">Caja</span>
+      </a>
+      <div class="flex items-center gap-5">
+        <a href="https://docs.getcaja.app" class="text-sm text-white/40 hover:text-white/80 transition-colors">Docs</a>
+        <a href="https://github.com/getcaja/caja" class="text-white/40 hover:text-white/80 transition-colors" aria-label="GitHub">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="relative flex flex-col items-center pt-16 px-6">
+
+    <h1 class="fade-up d1 text-5xl sm:text-6xl font-bold tracking-tight text-center text-white leading-[1.1]">
+      Design Is Code
+    </h1>
+    <p class="fade-up d2 mt-5 text-lg text-white/30 text-center max-w-xl leading-relaxed">
+      What you design is what you ship. Let AI build for you, adjust on canvas, or both — no translation layer, the tech you already&nbsp;use.
+    </p>
+
+    <div class="fade-up d3 mt-7 flex flex-col items-center">
+      <a href="https://github.com/getcaja/caja/releases" class="inline-flex items-center gap-2 bg-white text-[#09090b] font-semibold text-sm px-5 py-2 rounded-lg hover:bg-white/90 transition-colors">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/>
+          <polyline points="7 10 12 15 17 10"/>
+          <line x1="12" y1="15" x2="12" y2="3"/>
+        </svg>
+        Download for macOS
+      </a>
+      <span class="text-xs mt-3" style="color:#666;">Free and open source</span>
+    </div>
+
+    <!-- APP MOCKUP -->
+    <div class="fade-up d4 mt-14 w-full max-w-5xl relative">
+
+      <div id="mockup-app" class="rounded-xl overflow-hidden border border-[#2a2a2e] shadow-2xl shadow-black/60 text-left" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; will-change: transform;">
+
+        <!-- Title bar: 38px, bg-surface-0/60 -->
+        <div class="flex items-center justify-center relative backdrop-blur-md border-b border-[rgba(255,255,255,0.08)]" style="height:38px;background:rgba(25,25,25,0.6);">
+          <div class="absolute flex gap-2" style="left:12px;">
+            <div class="w-3 h-3 rounded-full bg-[#ff5f57]"></div>
+            <div class="w-3 h-3 rounded-full bg-[#febc2e]"></div>
+            <div class="w-3 h-3 rounded-full bg-[#28c840]"></div>
+          </div>
+          <span class="text-[12px]" style="color:#a1a1a1;">Untitled — Caja</span>
+          <!-- MCP plug icon -->
+          <div class="absolute flex items-center justify-center w-5 h-5 rounded" style="right:16px;color:#717171;">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22v-5"/><path d="M9 8V2"/><path d="M15 8V2"/><path d="M18 8v5a4 4 0 0 1-4 4h-4a4 4 0 0 1-4-4V8Z"/></svg>
+          </div>
+        </div>
+
+        <!-- App body -->
+        <div class="flex" style="height:clamp(360px,54vh,520px);">
+
+          <!-- ====== LEFT: Tree Panel (224px) ====== -->
+          <div class="shrink-0 border-r border-[rgba(255,255,255,0.08)] flex flex-col text-[12px] hidden sm:flex" style="width:200px;background:rgba(34,34,34,0.8);">
+
+            <!-- Tab bar: File / Assets -->
+            <div class="flex items-center justify-between border-b border-[rgba(255,255,255,0.08)]" style="padding:10px 16px 10px 10px;">
+              <div class="flex items-center gap-1">
+                <span class="font-semibold px-1.5 py-0.5 rounded" style="color:#f0f0f0;">File</span>
+                <span class="font-semibold px-1.5 py-0.5 rounded" style="color:#717171;">Assets</span>
+              </div>
+              <div class="w-5 h-5 flex items-center justify-center rounded" style="color:#717171;">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+              </div>
+            </div>
+
+            <!-- Pages section -->
+            <div class="border-b border-[rgba(255,255,255,0.08)]" style="padding:12px 0;">
+              <div class="flex items-center justify-between" style="padding:0 16px;">
+                <span class="font-semibold" style="color:#f0f0f0;">Pages</span>
+                <div class="w-5 h-5 flex items-center justify-center rounded" style="color:#717171;">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                </div>
+              </div>
+              <div style="padding:6px 8px 0;">
+                <div class="flex items-center justify-between rounded" style="padding:4px 8px;color:#a1a1a1;">
+                  <div class="flex items-center gap-1.5 font-semibold">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/></svg>
+                    Page 1
+                  </div>
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color:#a1a1a1;"><polyline points="20 6 9 17 4 12"/></svg>
+                </div>
+              </div>
+            </div>
+
+            <!-- Layers section -->
+            <div class="flex-1 overflow-hidden" style="padding:12px 0 0;">
+              <div class="flex items-center justify-between" style="padding:0 16px;">
+                <span class="font-semibold" style="color:#f0f0f0;">Layers</span>
+                <div class="w-5 h-5 flex items-center justify-center rounded" style="color:#717171;">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m7 15 5 5 5-5"/><path d="m7 9 5-5 5 5"/></svg>
+                </div>
+              </div>
+              <div class="flex flex-col" style="padding:8px 4px 0;gap:2px;" id="mock-tree">
+                <!-- Body row (selected by default) -->
+                <div class="flex items-center gap-1 rounded" id="tree-body" style="padding:4px 8px;padding-left:16px;background:rgba(12,140,233,0.15);color:#6bb8f0;">
+                  <div class="w-4 h-4 flex items-center justify-center shrink-0">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+                  </div>
+                  Body
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- ====== CENTER: Canvas ====== -->
+          <div class="flex-1 flex items-center justify-center relative overflow-hidden" style="background:#0e0e11;">
+            <!-- White artboard -->
+            <div class="relative rounded-sm shadow-lg overflow-hidden" id="canvas-frame" style="width:52%;height:82%;background:white;">
+              <div id="canvas-inner" class="h-full flex items-center justify-center">
+                <span style="color:rgba(0,0,0,0.25);font-size:12px;" id="canvas-empty">Add an element to start</span>
+              </div>
+            </div>
+
+            <!-- Floating toolbar -->
+            <div class="absolute flex items-stretch rounded-lg border border-[rgba(255,255,255,0.08)]" style="bottom:12px;background:#222222;padding:4px;">
+              <!-- Add button -->
+              <div class="w-7 h-7 flex items-center justify-center rounded-md" style="color:#717171;">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+              </div>
+              <!-- Tools group -->
+              <div class="flex rounded-md" style="background:rgba(25,25,25,0.5);padding:2px;gap:2px;margin-left:2px;">
+                <!-- Pointer (active) -->
+                <div class="w-6 h-6 flex items-center justify-center rounded" style="background:rgba(255,255,255,0.14);color:#f0f0f0;">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3l7.07 16.97 2.51-7.39 7.39-2.51L3 3z"/></svg>
+                </div>
+                <!-- Frame -->
+                <div class="w-6 h-6 flex items-center justify-center rounded" style="color:#717171;">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/></svg>
+                </div>
+                <!-- Text -->
+                <div class="w-6 h-6 flex items-center justify-center rounded" style="color:#717171;">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7V4h16v3"/><path d="M9 20h6"/><path d="M12 4v16"/></svg>
+                </div>
+              </div>
+              <!-- Divider -->
+              <div class="self-stretch shrink-0" style="width:1px;background:rgba(255,255,255,0.08);margin:0 4px;"></div>
+              <!-- Viewport -->
+              <div class="w-7 h-7 flex items-center justify-center rounded-md" style="color:#717171;">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+              </div>
+              <!-- Preview -->
+              <div class="w-7 h-7 flex items-center justify-center rounded-md" style="color:#717171;">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>
+              </div>
+            </div>
+          </div>
+
+          <!-- ====== RIGHT: Properties Panel (240px) ====== -->
+          <div class="shrink-0 border-l border-[rgba(255,255,255,0.08)] flex flex-col text-[12px] hidden md:flex overflow-hidden" style="width:210px;background:rgba(34,34,34,0.8);">
+
+            <!-- Design bar: component + zoom -->
+            <div class="flex items-center gap-1 shrink-0 border-b border-[rgba(255,255,255,0.08)]" style="padding:6px 16px;">
+              <div class="w-5 h-5 flex items-center justify-center rounded shrink-0" style="color:#717171;">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2.7 10.3a2.41 2.41 0 0 0 0 3.41l7.59 7.59a2.41 2.41 0 0 0 3.41 0l7.59-7.59a2.41 2.41 0 0 0 0-3.41l-7.59-7.59a2.41 2.41 0 0 0-3.41 0Z"/></svg>
+              </div>
+              <div class="flex-1"></div>
+              <div class="w-5 h-5 flex items-center justify-center rounded shrink-0" style="color:#717171;">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/></svg>
+              </div>
+              <span class="tabular-nums text-center select-none" style="color:#a1a1a1;min-width:36px;">100%</span>
+              <div class="w-5 h-5 flex items-center justify-center rounded shrink-0" style="color:#717171;">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+              </div>
+            </div>
+
+            <!-- Scrollable properties -->
+            <div class="flex-1 overflow-y-auto">
+
+              <!-- Element section -->
+              <div class="flex flex-col gap-2 border-b border-[rgba(255,255,255,0.08)]" style="padding:12px 16px;">
+                <div class="flex items-center gap-2">
+                  <span class="font-medium rounded-md" id="props-badge" style="font-size:12px;padding:2px 6px;background:rgba(12,140,233,0.15);color:#0c8ce9;">box</span>
+                  <span class="flex-1 truncate" id="props-name" style="color:#a1a1a1;">Body</span>
+                  <div class="w-5 h-5 flex items-center justify-center rounded shrink-0" style="color:#717171;">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Position section (collapsed) -->
+              <div class="border-b border-[rgba(255,255,255,0.08)]" style="padding:14px 16px;">
+                <span class="font-semibold" style="color:#f0f0f0;">Position</span>
+                <div class="mt-2">
+                  <div class="h-6 flex items-center rounded" style="background:rgba(255,255,255,0.15);padding:0 8px;color:#a1a1a1;">Static</div>
+                </div>
+              </div>
+
+              <!-- Layout section -->
+              <div class="border-b border-[rgba(255,255,255,0.08)]" style="padding:14px 16px;">
+                <span class="font-semibold" style="color:#f0f0f0;">Layout</span>
+                <div class="flex flex-col gap-2 mt-2">
+                  <!-- Direction toggle group -->
+                  <div class="flex items-center gap-2">
+                    <div class="flex flex-1 rounded" style="background:rgba(255,255,255,0.15);">
+                      <div class="flex-1 h-6 flex items-center justify-center rounded" style="background:rgba(255,255,255,0.14);color:#f0f0f0;">
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="4" width="16" height="16" rx="1"/></svg>
+                      </div>
+                      <div class="flex-1 h-6 flex items-center justify-center rounded" style="color:#717171;">
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14"/><path d="m19 12-7 7-7-7"/></svg>
+                      </div>
+                      <div class="flex-1 h-6 flex items-center justify-center rounded" style="color:#717171;">
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                      </div>
+                      <div class="flex-1 h-6 flex items-center justify-center rounded" style="color:#717171;">
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+                      </div>
+                    </div>
+                  </div>
+                  <!-- W + H -->
+                  <div class="flex items-center gap-2">
+                    <div class="flex-1 h-6 flex items-center rounded gap-0.5" style="background:rgba(255,255,255,0.15);padding:0 4px;">
+                      <span style="color:#a1a1a1;width:16px;text-align:center;flex-shrink:0;">W</span>
+                      <span class="rounded font-medium" style="background:rgba(255,255,255,0.14);color:#f0f0f0;padding:0 4px;font-size:11px;line-height:18px;" id="props-w">Auto</span>
+                    </div>
+                    <div class="flex-1 h-6 flex items-center rounded gap-0.5" style="background:rgba(255,255,255,0.15);padding:0 4px;">
+                      <span style="color:#a1a1a1;width:16px;text-align:center;flex-shrink:0;">H</span>
+                      <span class="rounded font-medium" style="background:rgba(255,255,255,0.14);color:#f0f0f0;padding:0 4px;font-size:11px;line-height:18px;" id="props-h">Auto</span>
+                    </div>
+                  </div>
+                  <!-- P + M -->
+                  <div class="flex items-center gap-2">
+                    <div class="flex-1 h-6 flex items-center rounded gap-0.5" style="background:rgba(255,255,255,0.15);padding:0 4px;">
+                      <span style="color:#717171;width:16px;text-align:center;flex-shrink:0;font-size:12px;">P</span>
+                      <span style="color:#a1a1a1;" id="props-p">0</span>
+                    </div>
+                    <div class="flex-1 h-6 flex items-center rounded gap-0.5" style="background:rgba(255,255,255,0.15);padding:0 4px;">
+                      <span style="color:#717171;width:16px;text-align:center;flex-shrink:0;font-size:12px;">M</span>
+                      <span style="color:#a1a1a1;">0</span>
+                    </div>
+                  </div>
+                  <!-- Clip checkbox -->
+                  <div class="flex items-center gap-1.5">
+                    <span class="flex items-center justify-center rounded-sm border" style="width:14px;height:14px;border-color:rgba(255,255,255,0.12);background:rgba(255,255,255,0.15);"></span>
+                    <span style="color:#717171;">Clip</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Appearance section -->
+              <div class="border-b border-[rgba(255,255,255,0.08)]" style="padding:14px 16px;">
+                <span class="font-semibold" style="color:#f0f0f0;">Appearance</span>
+                <div class="flex flex-col gap-2 mt-2">
+                  <!-- Radius -->
+                  <div class="flex items-center gap-2">
+                    <div class="flex-1 h-6 flex items-center rounded gap-0.5" style="background:rgba(255,255,255,0.15);padding:0 4px;">
+                      <span style="color:#717171;width:16px;text-align:center;flex-shrink:0;">
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:inline-block;vertical-align:middle;"><path d="M12 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M3 3a18 18 0 0 1 18 18"/></svg>
+                      </span>
+                      <span style="color:#a1a1a1;" id="props-radius">0</span>
+                    </div>
+                  </div>
+                  <!-- Opacity -->
+                  <div class="flex items-center gap-2">
+                    <div class="flex-1 h-6 flex items-center rounded gap-0.5" style="background:rgba(255,255,255,0.15);padding:0 4px;">
+                      <span style="color:#717171;width:16px;text-align:center;flex-shrink:0;">
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:inline-block;vertical-align:middle;"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/></svg>
+                      </span>
+                      <span style="color:#a1a1a1;">100</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Fill section -->
+              <div class="border-b border-[rgba(255,255,255,0.08)]" style="padding:14px 16px;">
+                <span class="font-semibold" style="color:#f0f0f0;">Fill</span>
+                <div class="flex flex-col gap-2 mt-2">
+                  <!-- Solid / Image toggle -->
+                  <div class="flex items-center gap-2">
+                    <div class="flex flex-1 rounded" style="background:rgba(255,255,255,0.15);">
+                      <div class="flex-1 h-6 flex items-center justify-center rounded" style="background:rgba(255,255,255,0.14);color:#f0f0f0;">Solid</div>
+                      <div class="flex-1 h-6 flex items-center justify-center rounded" style="color:#717171;">Image</div>
+                    </div>
+                  </div>
+                  <!-- Color swatch + value -->
+                  <div class="flex items-center gap-2">
+                    <div class="flex-1 h-6 flex items-center rounded gap-1" style="background:rgba(255,255,255,0.15);padding:0 4px;">
+                      <span class="flex items-center justify-center shrink-0" style="width:16px;">
+                        <span class="rounded-sm border border-[rgba(255,255,255,0.08)]" id="props-swatch" style="width:12px;height:12px;display:block;background:white;transition:background 0.5s;"></span>
+                      </span>
+                      <span style="color:#a1a1a1;" id="props-fill">white</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Collapsed sections -->
+              <div class="border-b border-[rgba(255,255,255,0.08)]" style="padding:14px 16px;">
+                <span class="font-semibold" style="color:#f0f0f0;">Border</span>
+              </div>
+              <div class="border-b border-[rgba(255,255,255,0.08)]" style="padding:14px 16px;">
+                <span class="font-semibold" style="color:#f0f0f0;">Effects</span>
+              </div>
+              <div class="border-b border-[rgba(255,255,255,0.08)]" style="padding:14px 16px;">
+                <span class="font-semibold" style="color:#f0f0f0;">Transform</span>
+              </div>
+              <div class="border-b border-[rgba(255,255,255,0.08)]" style="padding:14px 16px;">
+                <span class="font-semibold" style="color:#f0f0f0;">Transition</span>
+              </div>
+              <div style="padding:14px 16px;">
+                <span class="font-semibold" style="color:#f0f0f0;">Classes</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Claude Code terminal -->
+      <div id="mockup-terminal" class="absolute rounded-lg border border-[#2a2a2e] shadow-2xl shadow-black/80 overflow-hidden" style="z-index: 10; bottom:16px; left:-20px; width: min(420px, calc(100% - 16px)); will-change: transform;">
+        <div class="bg-[#141416] border-b border-white/[0.06] flex items-center justify-center relative" style="height:34px;">
+          <div class="absolute flex gap-2" style="left:12px;">
+            <div class="w-2.5 h-2.5 rounded-full bg-white/[0.12]"></div>
+            <div class="w-2.5 h-2.5 rounded-full bg-white/[0.12]"></div>
+            <div class="w-2.5 h-2.5 rounded-full bg-white/[0.12]"></div>
+          </div>
+          <span class="text-[11px] text-white/25">Claude Code</span>
+        </div>
+        <div class="bg-[#0a0a0c]/95 backdrop-blur-md p-3 font-mono text-[11px] leading-[1.8] overflow-hidden" style="height: 190px;">
+          <div id="terminal-lines"></div>
+          <div class="flex items-center gap-1.5 mt-1">
+            <span style="color:#33ff00aa;">$</span>
+            <span id="terminal-cursor" style="color:#33ff00;"></span>
+            <span class="inline-block w-[6px] h-[13px]" style="background:#33ff00cc;animation: blink 1s step-end infinite;"></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section class="py-24 px-6">
+    <div class="max-w-4xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+      <div>
+        <p class="text-sm font-medium" style="color:#999;">WYDIWYG</p>
+        <p class="text-sm mt-1.5 leading-relaxed" style="color:#555;">What you design is what you get. No translation layer, no compiled output — pure HTML + CSS.</p>
+      </div>
+      <div>
+        <p class="text-sm font-medium" style="color:#999;">AI-native</p>
+        <p class="text-sm mt-1.5 leading-relaxed" style="color:#555;">Built for AI agents from day one. Claude, Cursor, or any MCP client builds layouts directly on canvas.</p>
+      </div>
+      <div>
+        <p class="text-sm font-medium" style="color:#999;">Bidirectional</p>
+        <p class="text-sm mt-1.5 leading-relaxed" style="color:#555;">Design visually, get real Tailwind tokens. Paste classes back, keep designing. Code and canvas stay in sync.</p>
+      </div>
+      <div>
+        <p class="text-sm font-medium" style="color:#999;">Components</p>
+        <p class="text-sm mt-1.5 leading-relaxed" style="color:#555;">Save any frame as a reusable component with named slots. Export libraries to share across projects.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="py-8 px-6">
+    <div class="max-w-6xl mx-auto flex items-center justify-between">
+      <span class="text-white/15 text-sm">From Mexico City, with love</span>
+      <div class="flex items-center gap-5 text-sm text-white/20">
+        <a href="https://docs.getcaja.app" class="hover:text-white/50 transition-colors">Docs</a>
+        <a href="https://github.com/getcaja/caja" class="hover:text-white/50 transition-colors">GitHub</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- SYNCED DEMO -->
+  <script>
+  (function () {
+    var $ = function(id) { return document.getElementById(id); };
+    var lines = $('terminal-lines'), cursor = $('terminal-cursor');
+    var tree = $('mock-tree'), treeBody = $('tree-body');
+    var canvasInner = $('canvas-inner'), canvasFrame = $('canvas-frame');
+    var propsName = $('props-name'), propsBadge = $('props-badge');
+    var propsP = $('props-p'), propsW = $('props-w'), propsH = $('props-h');
+    var propsFill = $('props-fill'), propsSwatch = $('props-swatch'), propsRadius = $('props-radius');
+
+    var SEL_BG = 'rgba(12,140,233,0.15)';
+    var SEL_COLOR = '#6bb8f0';
+    var UNSEL_COLOR = 'rgba(255,255,255,0.35)';
+
+    function addTreeNode(name, icon, depth, sel) {
+      var d = document.createElement('div');
+      d.className = 'flex items-center gap-1 rounded mock-node';
+      d.style.cssText = 'padding:4px 8px;padding-left:' + (16 + depth * 12) + 'px;opacity:0;transition:opacity 0.3s ease;';
+      if (sel) { d.style.background = SEL_BG; d.style.color = SEL_COLOR; }
+      else { d.style.color = UNSEL_COLOR; }
+      var ic = {
+        box: '<rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/>',
+        text: '<path d="M4 7V4h16v3"/><path d="M9 20h6"/><path d="M12 4v16"/>',
+        button: '<rect x="3" y="3" width="18" height="18" rx="2"/>'
+      };
+      d.innerHTML = '<div class="w-4 h-4 flex items-center justify-center shrink-0"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">' + (ic[icon] || ic.box) + '</svg></div> ' + name;
+      tree.appendChild(d);
+      requestAnimationFrame(function() { d.style.opacity = '1'; });
+      return d;
+    }
+
+    function selectNode(node) {
+      // Deselect all (including Body)
+      treeBody.style.background = 'transparent'; treeBody.style.color = UNSEL_COLOR;
+      tree.querySelectorAll('.mock-node').forEach(function(n) {
+        n.style.background = 'transparent'; n.style.color = UNSEL_COLOR;
+      });
+      if (node) { node.style.background = SEL_BG; node.style.color = SEL_COLOR; }
+    }
+
+    function selectBody() {
+      tree.querySelectorAll('.mock-node').forEach(function(n) {
+        n.style.background = 'transparent'; n.style.color = UNSEL_COLOR;
+      });
+      treeBody.style.background = SEL_BG; treeBody.style.color = SEL_COLOR;
+    }
+
+    function setProps(opts) {
+      if (opts.name) propsName.textContent = opts.name;
+      if (opts.badge) propsBadge.textContent = opts.badge;
+      if (opts.p !== undefined) propsP.textContent = opts.p;
+      if (opts.w) propsW.textContent = opts.w;
+      if (opts.h) propsH.textContent = opts.h;
+      if (opts.fill) propsFill.textContent = opts.fill;
+      if (opts.swatch) { propsSwatch.style.background = opts.swatch; }
+      if (opts.radius !== undefined) propsRadius.textContent = opts.radius;
+    }
+
+    function addLine(cls, html) {
+      var div = document.createElement('div'); div.className = cls; div.innerHTML = html;
+      lines.appendChild(div); lines.parentElement.scrollTop = lines.parentElement.scrollHeight;
+    }
+
+    function typeText(text, cb) {
+      var i = 0; cursor.textContent = '';
+      (function tick() {
+        if (i < text.length) { cursor.textContent += text[i++]; setTimeout(tick, 18 + Math.random() * 28); }
+        else { cb(cursor.textContent); cursor.textContent = ''; }
+      })();
+    }
+
+    function fadeIn(el) {
+      el.style.opacity = '0'; el.style.transition = 'opacity 0.4s ease';
+      requestAnimationFrame(function() { el.style.opacity = '1'; });
+    }
+
+    function mcpFlash(el) {
+      el.classList.add('mcp-flash');
+      setTimeout(function() { el.classList.remove('mcp-flash'); }, 800);
+    }
+
+    var script = [
+      // Build hero
+      { type: 'prompt', text: 'build a hero with heading, subtitle, and CTA button' },
+      { type: 'tool', text: 'caja – add_frame (MCP)', sync: function() {
+        canvasInner.innerHTML = '<div id="cv-hero" style="padding:28px 20px;display:flex;flex-direction:column;align-items:center;gap:10px;height:100%;justify-content:center"></div>';
+        mcpFlash($('cv-hero'));
+        var n = addTreeNode('Hero', 'box', 1, true); selectNode(n);
+        setProps({ name:'Hero', badge:'box', p:'7', w:'Auto', h:'Auto', fill:'white', swatch:'white', radius:'0' });
+      }},
+      { type: 'result', text: '  + Hero: flex col, items-center, p-7' },
+
+      { type: 'tool', text: 'caja – add_frame (MCP)', sync: function() {
+        var hero = $('cv-hero');
+        var h = document.createElement('div'); h.id = 'cv-h';
+        h.style.cssText = 'font-weight:700;font-size:15px;color:#111;text-align:center;line-height:1.2';
+        h.textContent = 'Build products people love';
+        hero.appendChild(h); fadeIn(h); mcpFlash(h);
+        var n = addTreeNode('Heading', 'text', 2, true); selectNode(n);
+        setProps({ name:'Heading', badge:'text', p:'0', fill:'transparent', swatch:'transparent', radius:'0' });
+      }},
+      { type: 'result', text: '  + "Build products people love"' },
+
+      { type: 'tool', text: 'caja – add_frame (MCP)', sync: function() {
+        var hero = $('cv-hero');
+        var s = document.createElement('div'); s.id = 'cv-sub';
+        s.style.cssText = 'font-size:9px;color:#777;text-align:center;max-width:180px;line-height:1.6';
+        s.textContent = 'The platform that turns ideas into production-ready apps.';
+        hero.appendChild(s); fadeIn(s); mcpFlash(s);
+        var n = addTreeNode('Subtitle', 'text', 2, true); selectNode(n);
+        setProps({ name:'Subtitle', badge:'text' });
+      }},
+      { type: 'result', text: '  + Subtitle text added' },
+
+      { type: 'tool', text: 'caja – add_frame (MCP)', sync: function() {
+        var hero = $('cv-hero');
+        var b = document.createElement('div'); b.id = 'cv-btn';
+        b.style.cssText = 'margin-top:4px;background:#111;color:white;font-size:9px;font-weight:600;padding:5px 14px;border-radius:4px';
+        b.textContent = 'Get Started';
+        hero.appendChild(b); fadeIn(b); mcpFlash(b);
+        var n = addTreeNode('Button', 'button', 2, true); selectNode(n);
+        setProps({ name:'Button', badge:'box', p:'1 3.5', fill:'zinc-900', swatch:'#18181b', radius:'4' });
+      }},
+      { type: 'result', text: '  + Button: "Get Started"' },
+      { type: 'done', text: 'Hero created with 4 elements.' },
+
+      // Stats
+      { type: 'pause', ms: 1200 },
+      { type: 'prompt', text: 'add a stats row below the button' },
+      { type: 'tool', text: 'caja – batch_update (MCP)', sync: function() {
+        var hero = $('cv-hero');
+        var row = document.createElement('div'); row.id = 'cv-stats';
+        row.style.cssText = 'display:flex;gap:18px;margin-top:6px';
+        [['10k+','Users'],['50M+','Requests'],['4.9/5','Rating']].forEach(function(s) {
+          row.innerHTML += '<div style="text-align:center"><div style="font-weight:700;font-size:11px;color:#222">'+s[0]+'</div><div style="font-size:7px;color:#aaa">'+s[1]+'</div></div>';
+        });
+        hero.appendChild(row); fadeIn(row); mcpFlash(row);
+        var n = addTreeNode('Stats', 'box', 2, true); selectNode(n);
+        setProps({ name:'Stats', badge:'box', p:'0', fill:'transparent', swatch:'transparent', radius:'0' });
+      }},
+      { type: 'result', text: '  + Stats row with 3 items' },
+      { type: 'done', text: 'Stats added.' },
+
+      // Dark mode
+      { type: 'pause', ms: 1200 },
+      { type: 'prompt', text: 'make it dark with rounded corners' },
+      { type: 'tool', text: 'caja – update_frame (MCP)', sync: function() {
+        var hero = $('cv-hero');
+        hero.style.background = '#111113'; hero.style.borderRadius = '8px'; hero.style.padding = '36px 24px'; mcpFlash(hero);
+        canvasFrame.style.background = '#0e0e11';
+        $('cv-h').style.color = '#f0f0f0';
+        $('cv-sub').style.color = '#888';
+        var btn = $('cv-btn'); btn.style.background = '#fff'; btn.style.color = '#111';
+        document.querySelectorAll('#cv-stats div > div:first-child').forEach(function(d){d.style.color='#e0e0e0';});
+        document.querySelectorAll('#cv-stats div > div:last-child').forEach(function(d){d.style.color='#666';});
+        // Select Hero in tree
+        var nodes = tree.querySelectorAll('.mock-node'); if(nodes[0]) selectNode(nodes[0]);
+        setProps({ name:'Hero', badge:'box', p:'9', fill:'zinc-900', swatch:'#18181b', radius:'8' });
+      }},
+      { type: 'result', text: '  + bg: zinc-900, rounded-lg, p-9' },
+      { type: 'done', text: 'Dark theme applied.' },
+
+      // Reset
+      { type: 'pause', ms: 3000 },
+      { type: 'clear', sync: function() {
+        tree.querySelectorAll('.mock-node').forEach(function(n){n.remove();});
+        selectBody();
+        canvasInner.innerHTML = '<span style="color:rgba(0,0,0,0.25);font-size:12px;" id="canvas-empty">Add an element to start</span>';
+        canvasFrame.style.background = 'white';
+        setProps({ name:'Body', badge:'box', p:'0', w:'Auto', h:'Auto', fill:'white', swatch:'white', radius:'0' });
+      }},
+    ];
+
+    var idx = 0;
+    function run() {
+      if (idx >= script.length) idx = 0;
+      var s = script[idx++];
+      if (s.type === 'clear') { lines.innerHTML = ''; if(s.sync)s.sync(); setTimeout(run, 800); }
+      else if (s.type === 'pause') { setTimeout(run, s.ms); }
+      else if (s.type === 'prompt') { if(s.sync)s.sync(); typeText(s.text, function(t) { addLine('mb-1','<span style="color:#33ff00aa;">$</span> <span style="color:#33ff00;">'+t+'</span>'); setTimeout(run,400); }); }
+      else if (s.type === 'tool') { if(s.sync)s.sync(); addLine('','<span class="inline-block w-1.5 h-1.5 rounded-full mr-1.5 align-middle" style="background:#33ff0040;"></span><span style="color:#33ff0055;">'+s.text+'</span>'); setTimeout(run,350); }
+      else if (s.type === 'result') { if(s.sync)s.sync(); addLine('ml-3','<span style="color:#33ff0033;">'+s.text+'</span>'); setTimeout(run,300); }
+      else if (s.type === 'done') { if(s.sync)s.sync(); addLine('mt-1 mb-1','<span style="color:#33ff0077;">'+s.text+'</span>'); setTimeout(run,600); }
+    }
+    setTimeout(run, 1800);
+  })();
+  </script>
+
+  <!-- PARALLAX -->
+  <script>
+  (function() {
+    var app = document.getElementById('mockup-app');
+    var term = document.getElementById('mockup-terminal');
+    var ticking = false;
+    window.addEventListener('scroll', function() {
+      if (!ticking) {
+        requestAnimationFrame(function() {
+          var y = window.scrollY;
+          app.style.transform = 'translateY(' + (y * -0.04) + 'px)';
+          term.style.transform = 'translateY(' + (y * 0.06) + 'px)';
+          ticking = false;
+        });
+        ticking = true;
+      }
+    });
+  })();
+  </script>
+
+</body>
+</html>
