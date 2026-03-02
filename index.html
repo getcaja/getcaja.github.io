@@ -9,7 +9,7 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
@@ -56,6 +56,27 @@
       animation: mcp-pulse 0.8s ease-out;
     }
 
+    #mock-cursor {
+      position: absolute;
+      width: 28px; height: 36px;
+      pointer-events: none;
+      z-index: 50;
+      opacity: 0;
+      transition: top 0.8s cubic-bezier(0.4,0,0.2,1), left 0.8s cubic-bezier(0.4,0,0.2,1), opacity 0.3s ease;
+      filter: drop-shadow(0 2px 6px rgba(0,0,0,0.6));
+    }
+
+    @keyframes click-ripple {
+      0%   { transform: scale(0); opacity: 0.5; }
+      100% { transform: scale(1); opacity: 0; }
+    }
+    .click-ring {
+      position: absolute; pointer-events: none; z-index: 49;
+      width: 36px; height: 36px; border-radius: 50%;
+      border: 2px solid #0c8ce9;
+      animation: click-ripple 0.5s ease-out forwards;
+    }
+
   </style>
 </head>
 
@@ -69,7 +90,7 @@
         <span class="font-semibold text-base text-white">Caja</span>
       </a>
       <div class="flex items-center gap-5">
-        <a href="https://docs.getcaja.app" class="text-sm text-white/40 hover:text-white/80 transition-colors">Docs</a>
+        <a href="http://docs.getcaja.app" class="text-sm text-white/40 hover:text-white/80 transition-colors">Docs</a>
         <a href="https://github.com/getcaja/caja" class="text-white/40 hover:text-white/80 transition-colors" aria-label="GitHub">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
         </a>
@@ -81,10 +102,10 @@
   <section class="relative flex flex-col items-center pt-16 px-6">
 
     <h1 class="fade-up d1 text-5xl sm:text-6xl font-bold tracking-tight text-center text-white leading-[1.1]">
-      Design Is Code
+      Design at the speed of code
     </h1>
     <p class="fade-up d2 mt-5 text-lg text-white/30 text-center max-w-xl leading-relaxed">
-      What you design is the code you get. Let AI build for you, adjust on canvas, or both. No translation layer, the tech you already&nbsp;use.
+      Visual editor, real code output. Let AI build for you, adjust on canvas, or both. No translation layer, the tech you already&nbsp;use.
     </p>
 
     <div class="fade-up d3 mt-7 flex flex-col items-center">
@@ -112,10 +133,6 @@
             <div class="w-3 h-3 rounded-full bg-[#28c840]"></div>
           </div>
           <span class="text-[12px]" style="color:#a1a1a1;">Untitled — Caja</span>
-          <!-- MCP plug icon -->
-          <div class="absolute flex items-center justify-center w-5 h-5 rounded" style="right:16px;color:#717171;">
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22v-5"/><path d="M9 8V2"/><path d="M15 8V2"/><path d="M18 8v5a4 4 0 0 1-4 4h-4a4 4 0 0 1-4-4V8Z"/></svg>
-          </div>
         </div>
 
         <!-- App body -->
@@ -166,7 +183,7 @@
                 <!-- Body row (selected by default) -->
                 <div class="flex items-center gap-1 rounded" id="tree-body" style="padding:4px 8px;padding-left:16px;background:rgba(12,140,233,0.15);color:#6bb8f0;">
                   <div class="w-4 h-4 flex items-center justify-center shrink-0">
-                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" x2="2" y1="6" y2="6"/><line x1="22" x2="2" y1="18" y2="18"/><line x1="6" x2="6" y1="2" y2="22"/><line x1="18" x2="18" y1="2" y2="22"/></svg>
                   </div>
                   Body
                 </div>
@@ -175,16 +192,19 @@
           </div>
 
           <!-- ====== CENTER: Canvas ====== -->
-          <div class="flex-1 flex items-center justify-center relative overflow-hidden" style="background:#0e0e11;">
-            <!-- White artboard -->
-            <div class="relative rounded-sm shadow-lg overflow-hidden" id="canvas-frame" style="width:52%;height:82%;background:white;">
+          <div class="flex-1 relative overflow-hidden" style="background:#0e0e11;">
+            <!-- Artboard (fills canvas, shrinks on responsive) -->
+            <div class="absolute inset-0 overflow-hidden overflow-y-auto" id="canvas-frame" style="background:white;transition:all 0.5s ease;">
               <div id="canvas-inner" class="h-full flex items-center justify-center">
-                <span style="color:rgba(0,0,0,0.25);font-size:12px;" id="canvas-empty">Add an element to start</span>
+                <span style="color:rgba(0,0,0,0.15);font-size:12px;" id="canvas-empty"></span>
               </div>
             </div>
 
+            <!-- Mock cursor -->
+            <svg id="mock-cursor" viewBox="0 0 24 24" fill="white" stroke="black" stroke-width="1.5"><path d="M3 3l7.07 16.97 2.51-7.39 7.39-2.51L3 3z"/></svg>
+
             <!-- Floating toolbar -->
-            <div class="absolute flex items-stretch rounded-lg border border-[rgba(255,255,255,0.08)]" style="bottom:12px;background:#222222;padding:4px;">
+            <div class="absolute flex items-stretch rounded-lg border border-[rgba(255,255,255,0.08)]" style="bottom:12px;left:50%;transform:translateX(-50%);background:#222222;padding:4px;">
               <!-- Add button -->
               <div class="w-7 h-7 flex items-center justify-center rounded-md" style="color:#717171;">
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
@@ -219,21 +239,6 @@
 
           <!-- ====== RIGHT: Properties Panel (240px) ====== -->
           <div class="shrink-0 border-l border-[rgba(255,255,255,0.08)] flex flex-col text-[12px] hidden md:flex overflow-hidden" style="width:210px;background:rgba(34,34,34,0.8);">
-
-            <!-- Design bar: component + zoom -->
-            <div class="flex items-center gap-1 shrink-0 border-b border-[rgba(255,255,255,0.08)]" style="padding:6px 16px;">
-              <div class="w-5 h-5 flex items-center justify-center rounded shrink-0" style="color:#717171;">
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2.7 10.3a2.41 2.41 0 0 0 0 3.41l7.59 7.59a2.41 2.41 0 0 0 3.41 0l7.59-7.59a2.41 2.41 0 0 0 0-3.41l-7.59-7.59a2.41 2.41 0 0 0-3.41 0Z"/></svg>
-              </div>
-              <div class="flex-1"></div>
-              <div class="w-5 h-5 flex items-center justify-center rounded shrink-0" style="color:#717171;">
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"/></svg>
-              </div>
-              <span class="tabular-nums text-center select-none" style="color:#a1a1a1;min-width:36px;">100%</span>
-              <div class="w-5 h-5 flex items-center justify-center rounded shrink-0" style="color:#717171;">
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
-              </div>
-            </div>
 
             <!-- Scrollable properties -->
             <div class="flex-1 overflow-y-auto">
@@ -388,7 +393,7 @@
           </div>
           <span class="text-[11px] text-white/25">Claude Code</span>
         </div>
-        <div class="bg-[#0a0a0c]/95 backdrop-blur-md p-3 font-mono text-[11px] leading-[1.8] overflow-hidden" style="height: 190px;">
+        <div class="bg-[#0a0a0c]/95 backdrop-blur-md p-3 text-[11px] leading-[1.8] overflow-hidden" style="font-family:'JetBrains Mono',monospace;height:190px;">
           <div id="terminal-lines"></div>
           <div class="flex items-center gap-1.5 mt-1">
             <span style="color:#33ff00aa;">$</span>
@@ -404,8 +409,8 @@
   <section class="py-24 px-6">
     <div class="max-w-4xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
       <div>
-        <p class="text-sm font-medium" style="color:#999;">As real as it gets</p>
-        <p class="text-sm mt-1.5 leading-relaxed" style="color:#555;">No translation layer, no compiled output. What you design is the code you get. Pure HTML + CSS.</p>
+        <p class="text-sm font-medium" style="color:#999;">Real output</p>
+        <p class="text-sm mt-1.5 leading-relaxed" style="color:#555;">No translation layer, no compiled output. What you see on canvas is what you ship. Pure HTML + CSS.</p>
       </div>
       <div>
         <p class="text-sm font-medium" style="color:#999;">AI-native</p>
@@ -425,9 +430,9 @@
   <!-- FOOTER -->
   <footer class="py-8 px-6">
     <div class="max-w-6xl mx-auto flex items-center justify-between">
-      <span class="text-white/15 text-sm">From Mexico City, with love</span>
+      <span class="text-white/15 text-sm">© 2026 Caja</span>
       <div class="flex items-center gap-5 text-sm text-white/20">
-        <a href="https://docs.getcaja.app" class="hover:text-white/50 transition-colors">Docs</a>
+        <a href="http://docs.getcaja.app" class="hover:text-white/50 transition-colors">Docs</a>
         <a href="https://github.com/getcaja/caja" class="hover:text-white/50 transition-colors">GitHub</a>
       </div>
     </div>
@@ -448,18 +453,24 @@
     var SEL_COLOR = '#6bb8f0';
     var UNSEL_COLOR = 'rgba(255,255,255,0.35)';
 
-    function addTreeNode(name, icon, depth, sel) {
+    function addTreeNode(name, icon, depth, sel, breakpoints) {
       var d = document.createElement('div');
       d.className = 'flex items-center gap-1 rounded mock-node';
       d.style.cssText = 'padding:4px 8px;padding-left:' + (16 + depth * 12) + 'px;opacity:0;transition:opacity 0.3s ease;';
       if (sel) { d.style.background = SEL_BG; d.style.color = SEL_COLOR; }
       else { d.style.color = UNSEL_COLOR; }
       var ic = {
-        box: '<rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/>',
+        box: '<line x1="22" x2="2" y1="6" y2="6"/><line x1="22" x2="2" y1="18" y2="18"/><line x1="6" x2="6" y1="2" y2="22"/><line x1="18" x2="18" y1="2" y2="22"/>',
         text: '<path d="M4 7V4h16v3"/><path d="M9 20h6"/><path d="M12 4v16"/>',
         button: '<rect x="3" y="3" width="18" height="18" rx="2"/>'
       };
-      d.innerHTML = '<div class="w-4 h-4 flex items-center justify-center shrink-0"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">' + (ic[icon] || ic.box) + '</svg></div> ' + name;
+      var pills = '';
+      if (breakpoints) {
+        breakpoints.forEach(function(bp) {
+          pills += ' <span style="padding:0 3px;font-size:9px;line-height:14px;font-weight:500;border-radius:3px;background:rgba(255,255,255,0.08);color:#717171;">' + bp + '</span>';
+        });
+      }
+      d.innerHTML = '<div class="w-4 h-4 flex items-center justify-center shrink-0"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">' + (ic[icon] || ic.box) + '</svg></div> ' + name + pills;
       tree.appendChild(d);
       requestAnimationFrame(function() { d.style.opacity = '1'; });
       return d;
@@ -500,7 +511,7 @@
     function typeText(text, cb) {
       var i = 0; cursor.textContent = '';
       (function tick() {
-        if (i < text.length) { cursor.textContent += text[i++]; setTimeout(tick, 18 + Math.random() * 28); }
+        if (i < text.length) { cursor.textContent += text[i++]; setTimeout(tick, 28 + Math.random() * 38); }
         else { cb(cursor.textContent); cursor.textContent = ''; }
       })();
     }
@@ -515,95 +526,278 @@
       setTimeout(function() { el.classList.remove('mcp-flash'); }, 800);
     }
 
+    var PILL = function(bp) { return ' <span style="padding:0 3px;font-size:9px;line-height:14px;font-weight:500;border-radius:3px;background:rgba(255,255,255,0.08);color:#717171;">'+bp+'</span>'; };
+    var mockCursor = $('mock-cursor');
+
+    function showCursor(x, y, cb) {
+      mockCursor.style.opacity = '1';
+      mockCursor.style.left = x + 'px'; mockCursor.style.top = y + 'px';
+      setTimeout(cb, 900);
+    }
+    function hideCursor() { mockCursor.style.opacity = '0'; }
+    function clickEffect(x, y) {
+      var ring = document.createElement('div');
+      ring.className = 'click-ring';
+      ring.style.left = (x - 18) + 'px'; ring.style.top = (y - 18) + 'px';
+      canvasFrame.parentElement.appendChild(ring);
+      setTimeout(function() { ring.remove(); }, 500);
+    }
+
     var script = [
-      // Build hero
-      { type: 'prompt', text: 'build a hero with heading, subtitle, and CTA button' },
-      { type: 'tool', text: 'caja – add_frame (MCP)', sync: function() {
-        canvasInner.innerHTML = '<div id="cv-hero" style="padding:28px 20px;display:flex;flex-direction:column;align-items:center;gap:10px;height:100%;justify-content:center"></div>';
-        mcpFlash($('cv-hero'));
-        var n = addTreeNode('Hero', 'box', 1, true); selectNode(n);
-        setProps({ name:'Hero', badge:'box', p:'7', w:'Auto', h:'Auto', fill:'white', swatch:'white', radius:'0' });
-      }},
-      { type: 'result', text: '  + Hero: flex col, items-center, p-7' },
+      // ═══ 1. BUILD ═══
+      { type: 'prompt', text: 'build a website for my gummy bears company' },
 
+      // Nav
       { type: 'tool', text: 'caja – add_frame (MCP)', sync: function() {
-        var hero = $('cv-hero');
-        var h = document.createElement('div'); h.id = 'cv-h';
-        h.style.cssText = 'font-weight:700;font-size:15px;color:#111;text-align:center;line-height:1.2';
-        h.textContent = 'Build products people love';
-        hero.appendChild(h); fadeIn(h); mcpFlash(h);
-        var n = addTreeNode('Heading', 'text', 2, true); selectNode(n);
-        setProps({ name:'Heading', badge:'text', p:'0', fill:'transparent', swatch:'transparent', radius:'0' });
+        canvasInner.style.display = 'block';
+        canvasInner.innerHTML =
+          '<div id="cv-page" style="display:flex;flex-direction:column;min-height:100%;width:100%;">' +
+            '<div id="cv-nav" style="display:flex;justify-content:space-between;align-items:center;padding:14px 20px;">' +
+              '<span id="cv-logo" style="font-weight:700;font-size:8px;color:#111;letter-spacing:-0.2px;">Gummy Co.</span>' +
+              '<div id="cv-nav-links" style="display:flex;gap:12px;font-size:6px;color:#bbb;align-items:center;">' +
+                '<span>Flavors</span><span>About</span>' +
+                '<span id="cv-nav-shop" style="color:#111;font-weight:500;">Shop</span>' +
+              '</div>' +
+            '</div>' +
+          '</div>';
+        mcpFlash($('cv-nav'));
+        var n = addTreeNode('nav', 'box', 1, true); selectNode(n);
+        addTreeNode('logo', 'text', 2);
+        addTreeNode('nav-links', 'box', 2);
+        setProps({ name:'nav', badge:'box', p:'3.5 5', w:'Auto', h:'Auto', fill:'white', swatch:'white', radius:'0' });
       }},
-      { type: 'result', text: '  + "Build products people love"' },
+      { type: 'result', text: '  Added nav with logo and links.' },
 
-      { type: 'tool', text: 'caja – add_frame (MCP)', sync: function() {
-        var hero = $('cv-hero');
-        var s = document.createElement('div'); s.id = 'cv-sub';
-        s.style.cssText = 'font-size:9px;color:#777;text-align:center;max-width:180px;line-height:1.6';
-        s.textContent = 'The platform that turns ideas into production-ready apps.';
-        hero.appendChild(s); fadeIn(s); mcpFlash(s);
-        var n = addTreeNode('Subtitle', 'text', 2, true); selectNode(n);
-        setProps({ name:'Subtitle', badge:'text' });
-      }},
-      { type: 'result', text: '  + Subtitle text added' },
-
-      { type: 'tool', text: 'caja – add_frame (MCP)', sync: function() {
-        var hero = $('cv-hero');
-        var b = document.createElement('div'); b.id = 'cv-btn';
-        b.style.cssText = 'margin-top:4px;background:#111;color:white;font-size:9px;font-weight:600;padding:5px 14px;border-radius:4px';
-        b.textContent = 'Get Started';
-        hero.appendChild(b); fadeIn(b); mcpFlash(b);
-        var n = addTreeNode('Button', 'button', 2, true); selectNode(n);
-        setProps({ name:'Button', badge:'box', p:'1 3.5', fill:'zinc-900', swatch:'#18181b', radius:'4' });
-      }},
-      { type: 'result', text: '  + Button: "Get Started"' },
-      { type: 'done', text: 'Hero created with 4 elements.' },
-
-      // Stats
-      { type: 'pause', ms: 1200 },
-      { type: 'prompt', text: 'add a stats row below the button' },
+      // Hero — left-aligned, dramatic type scale
       { type: 'tool', text: 'caja – batch_update (MCP)', sync: function() {
-        var hero = $('cv-hero');
-        var row = document.createElement('div'); row.id = 'cv-stats';
-        row.style.cssText = 'display:flex;gap:18px;margin-top:6px';
-        [['10k+','Users'],['50M+','Requests'],['4.9/5','Rating']].forEach(function(s) {
-          row.innerHTML += '<div style="text-align:center"><div style="font-weight:700;font-size:11px;color:#222">'+s[0]+'</div><div style="font-size:7px;color:#aaa">'+s[1]+'</div></div>';
-        });
-        hero.appendChild(row); fadeIn(row); mcpFlash(row);
-        var n = addTreeNode('Stats', 'box', 2, true); selectNode(n);
-        setProps({ name:'Stats', badge:'box', p:'0', fill:'transparent', swatch:'transparent', radius:'0' });
+        var page = $('cv-page');
+        var hero = document.createElement('div'); hero.id = 'cv-hero';
+        hero.style.cssText = 'padding:16px 20px 20px;text-align:center;display:flex;flex-direction:column;align-items:center;';
+        hero.innerHTML =
+          '<div id="cv-h" style="font-weight:800;font-size:26px;color:#111;line-height:0.93;letter-spacing:-0.8px;transition:font-size 0.5s ease;">Life is sweeter<br>with Gummy Bears</div>' +
+          '<div id="cv-sub" style="font-size:6.5px;color:#999;margin-top:10px;line-height:1.6;">Real fruit juice. Monk fruit sweetened.<br>No artificial anything.</div>' +
+          '<div id="cv-btn1" style="margin-top:10px;display:inline-block;font-size:5.5px;font-weight:600;padding:5px 16px;background:#111;color:#fff;letter-spacing:-0.2px;border-radius:9999px;transition:all 0.4s ease;">Shop now</div>';
+        page.appendChild(hero); fadeIn(hero); mcpFlash(hero);
+        var n = addTreeNode('hero', 'box', 1, true); selectNode(n);
+        addTreeNode('heading', 'text', 2);
+        addTreeNode('subtitle', 'text', 2);
+        addTreeNode('cta', 'button', 2);
+        setProps({ name:'hero', badge:'box', p:'4 5', fill:'white', swatch:'white', radius:'0' });
       }},
-      { type: 'result', text: '  + Stats row with 3 items' },
-      { type: 'done', text: 'Stats added.' },
+      { type: 'result', text: '  Hero section with heading and CTA.' },
 
-      // Dark mode
-      { type: 'pause', ms: 1200 },
-      { type: 'prompt', text: 'make it dark with rounded corners' },
-      { type: 'tool', text: 'caja – update_frame (MCP)', sync: function() {
-        var hero = $('cv-hero');
-        hero.style.background = '#111113'; hero.style.borderRadius = '8px'; hero.style.padding = '36px 24px'; mcpFlash(hero);
-        canvasFrame.style.background = '#0e0e11';
+      // Flavors — full-width color strips
+      { type: 'tool', text: 'caja – batch_update (MCP)', sync: function() {
+        var page = $('cv-page');
+        var flav = document.createElement('div'); flav.id = 'cv-flavors';
+        flav.style.cssText = 'display:flex;gap:3px;padding:10px 20px 0;';
+        flav.innerHTML =
+          '<div id="cv-fl-straw" style="flex:1;height:150px;background:#dc2626;display:flex;justify-content:center;align-items:center;border-radius:3px;">' +
+            '<span style="font-size:18px;line-height:1;">🍓</span>' +
+          '</div>' +
+          '<div style="flex:1;height:150px;background:#eab308;display:flex;justify-content:center;align-items:center;border-radius:3px;">' +
+            '<span style="font-size:18px;line-height:1;">🍋</span>' +
+          '</div>' +
+          '<div style="flex:1;height:150px;background:#2563eb;display:flex;justify-content:center;align-items:center;border-radius:3px;">' +
+            '<span style="font-size:18px;line-height:1;">🫐</span>' +
+          '</div>';
+        page.appendChild(flav); fadeIn(flav); mcpFlash(flav);
+        var n = addTreeNode('flavors', 'box', 1, true); selectNode(n);
+        setProps({ name:'flavors', badge:'box', p:'0', fill:'red-600', swatch:'#dc2626', radius:'0' });
+      }},
+      { type: 'result', text: '  3 product cards with brand colors.' },
+
+      // Features — 4-column grid
+      { type: 'tool', text: 'caja – add_frame (MCP)', sync: function() {
+        var page = $('cv-page');
+        var feat = document.createElement('div'); feat.id = 'cv-features';
+        feat.style.cssText = 'display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:8px;padding:24px 20px;';
+        feat.innerHTML =
+          '<div style="padding-top:0;"><div class="cv-ft" style="font-size:5.5px;font-weight:600;color:#111;">Monk fruit</div><div class="cv-fd" style="font-size:5px;color:#999;margin-top:3px;line-height:1.6;">Sweetened naturally with monk fruit. No cane sugar, no corn syrup, no artificial sweeteners.</div></div>' +
+          '<div style="padding-top:0;"><div class="cv-ft" style="font-size:5.5px;font-weight:600;color:#111;">Real juice</div><div class="cv-fd" style="font-size:5px;color:#999;margin-top:3px;line-height:1.6;">Every flavor starts with real fruit juice. No concentrates, no artificial colors.</div></div>' +
+          '<div style="padding-top:0;"><div class="cv-ft" style="font-size:5.5px;font-weight:600;color:#111;">Plant-based</div><div class="cv-fd" style="font-size:5px;color:#999;margin-top:3px;line-height:1.6;">We use plant-based gelatin so every gummy is 100% vegan friendly.</div></div>' +
+          '<div style="padding-top:0;"><div class="cv-ft" style="font-size:5.5px;font-weight:600;color:#111;">Gluten free</div><div class="cv-fd" style="font-size:5px;color:#999;margin-top:3px;line-height:1.6;">Certified gluten free and Non-GMO project verified. Safe for everyone.</div></div>';
+        page.appendChild(feat); fadeIn(feat); mcpFlash(feat);
+        var n = addTreeNode('features', 'box', 1, true); selectNode(n);
+        setProps({ name:'features', badge:'box', p:'4 5', fill:'white', swatch:'white', radius:'0' });
+      }},
+      { type: 'result', text: '  Features grid — 4 columns.' },
+
+      // Footer
+      { type: 'tool', text: 'caja – add_frame (MCP)', sync: function() {
+        var page = $('cv-page');
+        var ft = document.createElement('div'); ft.id = 'cv-footer';
+        ft.style.cssText = 'padding:12px 20px;border-top:1px solid #eee;display:flex;justify-content:space-between;align-items:center;';
+        ft.innerHTML =
+          '<span id="cv-ft-text" style="font-size:5px;color:#ccc;">© 2026 Gummy Co.</span>' +
+          '<span id="cv-ft-top" style="font-size:5px;color:#ccc;">Back to top</span>';
+        page.appendChild(ft); fadeIn(ft); mcpFlash(ft);
+        var n = addTreeNode('footer', 'box', 1, true); selectNode(n);
+        setProps({ name:'footer', badge:'box', p:'3 5', fill:'white', swatch:'white', radius:'0' });
+      }},
+      { type: 'result', text: '  Footer with copyright.' },
+      { type: 'done', text: 'Looking good! Your gummy bears site is ready. I added a nav, hero with a big headline, product showcase, features section, and footer.' },
+
+      // ═══ 2. DARK ═══
+      { type: 'pause', ms: 2000 },
+      { type: 'prompt', text: 'make it dark' },
+      { type: 'tool', text: 'caja – batch_update (MCP)', sync: function() {
+        $('cv-page').style.background = '#0c0c0e';
+        $('cv-logo').style.color = '#f0f0f0';
+        $('cv-nav-links').style.color = '#444';
+        $('cv-nav-shop').style.color = '#f0f0f0';
         $('cv-h').style.color = '#f0f0f0';
-        $('cv-sub').style.color = '#888';
-        var btn = $('cv-btn'); btn.style.background = '#fff'; btn.style.color = '#111';
-        document.querySelectorAll('#cv-stats div > div:first-child').forEach(function(d){d.style.color='#e0e0e0';});
-        document.querySelectorAll('#cv-stats div > div:last-child').forEach(function(d){d.style.color='#666';});
-        // Select Hero in tree
+        $('cv-sub').style.color = '#555';
+        var btn = $('cv-btn1'); btn.style.background = '#f0f0f0'; btn.style.color = '#0c0c0e';
+        document.querySelectorAll('.cv-ft').forEach(function(d){ d.style.color = '#ccc'; });
+        document.querySelectorAll('.cv-fd').forEach(function(d){ d.style.color = '#555'; });
+        $('cv-footer').style.borderColor = '#1a1a1e';
+        $('cv-ft-text').style.color = '#2a2a2e';
+        $('cv-ft-top').style.color = '#2a2a2e';
+        mcpFlash($('cv-page'));
         var nodes = tree.querySelectorAll('.mock-node'); if(nodes[0]) selectNode(nodes[0]);
-        setProps({ name:'Hero', badge:'box', p:'9', fill:'zinc-900', swatch:'#18181b', radius:'8' });
+        setProps({ name:'nav', fill:'zinc-950', swatch:'#0c0c0e' });
       }},
-      { type: 'result', text: '  + bg: zinc-900, rounded-lg, p-9' },
-      { type: 'done', text: 'Dark theme applied.' },
+      { type: 'result', text: '  Swapped to dark palette.' },
+      { type: 'done', text: 'Done — dark background with light text. The color blocks still pop nicely against it.' },
 
-      // Reset
-      { type: 'pause', ms: 3000 },
+      // ═══ 3. RESPONSIVE ═══
+      { type: 'pause', ms: 2000 },
+      { type: 'prompt', text: 'make it responsive' },
+      { type: 'tool', text: 'caja – batch_update (MCP)', sync: function() {
+        canvasFrame.style.inset = '0'; canvasFrame.style.width = '55%'; canvasFrame.style.margin = '0 auto';
+        $('cv-flavors').style.flexDirection = 'column'; $('cv-flavors').querySelectorAll('div').forEach(function(d){ d.style.flex = 'none'; });
+        $('cv-features').style.gridTemplateColumns = '1fr 1fr';
+        var nodes = tree.querySelectorAll('.mock-node');
+        // nav[0], hero[3], flavors[7]
+        if(nodes[0]) { nodes[0].innerHTML += PILL('sm'); mcpFlash(nodes[0]); }
+        if(nodes[3]) { nodes[3].innerHTML += PILL('md') + PILL('sm'); mcpFlash(nodes[3]); }
+        if(nodes[7]) { nodes[7].innerHTML += PILL('sm'); mcpFlash(nodes[7]); }
+        selectNode(nodes[3]);
+        setProps({ name:'hero', p:'4 4' });
+      }},
+      { type: 'result', text: '  Added breakpoint overrides.' },
+      { type: 'done', text: 'Responsive! Stacked the products and collapsed the grid on small screens.' },
+
+      // ═══ 4. CURSOR (human touch, mobile view) ═══
+      { type: 'pause', ms: 2500 },
+
+      // Cursor 1: click heading, bump size 26→30px
+      { type: 'cursor', sync: function() {
+        mockCursor.style.transition = 'none';
+        mockCursor.style.left = '80%'; mockCursor.style.top = '10%';
+        mockCursor.style.opacity = '1';
+        requestAnimationFrame(function() {
+          mockCursor.style.transition = 'top 0.8s cubic-bezier(0.4,0,0.2,1), left 0.8s cubic-bezier(0.4,0,0.2,1), opacity 0.3s ease';
+          var h = $('cv-h');
+          var rect = h.getBoundingClientRect();
+          var parentRect = canvasFrame.parentElement.getBoundingClientRect();
+          var cx = rect.left - parentRect.left + rect.width * 0.3;
+          var cy = rect.top - parentRect.top + rect.height * 0.4;
+          mockCursor.style.left = cx + 'px'; mockCursor.style.top = cy + 'px';
+          setTimeout(function() {
+            clickEffect(cx, cy);
+            var nodes = tree.querySelectorAll('.mock-node');
+            if(nodes[4]) selectNode(nodes[4]);
+            h.style.outline = '2px solid #0c8ce9'; h.style.outlineOffset = '-1px';
+            setProps({ name:'heading', badge:'text', p:'0', fill:'transparent', swatch:'transparent' });
+            setTimeout(function() {
+              h.style.fontSize = '30px';
+            }, 600);
+          }, 900);
+        });
+      }},
+
+      // Cursor 2: glide below CTA, add a new "Learn more" button
+      { type: 'pause', ms: 2800 },
+      { type: 'cursor', sync: function() {
+        $('cv-h').style.outline = 'none';
+        var btn = $('cv-btn1');
+        var rect = btn.getBoundingClientRect();
+        var parentRect = canvasFrame.parentElement.getBoundingClientRect();
+        var cx = rect.left - parentRect.left + rect.width / 2;
+        var cy = rect.bottom - parentRect.top + 12;
+        mockCursor.style.left = cx + 'px'; mockCursor.style.top = cy + 'px';
+        setTimeout(function() {
+          clickEffect(cx, cy);
+          var link = document.createElement('div');
+          link.id = 'cv-link1';
+          link.style.cssText = 'display:inline-block;font-size:5.5px;font-weight:600;color:#666;padding:5px 16px;background:#e5e5e5;border-radius:9999px;margin-top:4px;';
+          link.textContent = 'Learn more';
+          $('cv-hero').appendChild(link);
+          mcpFlash(link);
+          var n = addTreeNode('learn-more', 'text', 2, true);
+          selectNode(n);
+          setProps({ name:'learn-more', badge:'text', p:'0', fill:'transparent', swatch:'transparent' });
+        }, 900);
+      }},
+
+      // Cursor 3: round the flavor boxes
+      { type: 'pause', ms: 2800 },
+      { type: 'cursor', sync: function() {
+        mockCursor.style.opacity = '1';
+        var straw = $('cv-fl-straw');
+        var rect = straw.getBoundingClientRect();
+        var parentRect = canvasFrame.parentElement.getBoundingClientRect();
+        var cx = rect.left - parentRect.left + rect.width / 2;
+        var cy = rect.top - parentRect.top + rect.height / 2;
+        mockCursor.style.left = cx + 'px'; mockCursor.style.top = cy + 'px';
+        setTimeout(function() {
+          clickEffect(cx, cy);
+          var nodes = tree.querySelectorAll('.mock-node');
+          if(nodes[7]) selectNode(nodes[7]);
+          straw.style.outline = '2px solid #0c8ce9'; straw.style.outlineOffset = '-1px';
+          setProps({ name:'flavors', badge:'box', p:'0', fill:'red-600', swatch:'#dc2626', radius:'3' });
+          setTimeout(function() {
+            $('cv-flavors').querySelectorAll('div').forEach(function(d){ d.style.borderRadius = '12px'; });
+            setProps({ radius:'12' });
+            setTimeout(function() {
+              straw.style.outline = 'none';
+            }, 800);
+          }, 600);
+        }, 900);
+      }},
+
+      // Cursor 4: change lemon color to a warmer tone
+      { type: 'pause', ms: 2800 },
+      { type: 'cursor', sync: function() {
+        mockCursor.style.opacity = '1';
+        var blocks = $('cv-flavors').querySelectorAll('div');
+        var lemon = blocks[1];
+        var rect = lemon.getBoundingClientRect();
+        var parentRect = canvasFrame.parentElement.getBoundingClientRect();
+        var cx = rect.left - parentRect.left + rect.width / 2;
+        var cy = rect.top - parentRect.top + rect.height / 2;
+        mockCursor.style.left = cx + 'px'; mockCursor.style.top = cy + 'px';
+        setTimeout(function() {
+          clickEffect(cx, cy);
+          lemon.style.outline = '2px solid #0c8ce9'; lemon.style.outlineOffset = '-1px';
+          setProps({ name:'lemon', fill:'amber-500', swatch:'#eab308', radius:'12' });
+          setTimeout(function() {
+            lemon.style.background = '#f59e0b';
+            setProps({ fill:'amber-400', swatch:'#f59e0b' });
+            setTimeout(function() {
+              lemon.style.outline = 'none';
+              hideCursor();
+            }, 1200);
+          }, 700);
+        }, 900);
+      }},
+
+      // ═══ RESET with fade ═══
+      { type: 'pause', ms: 3500 },
       { type: 'clear', sync: function() {
-        tree.querySelectorAll('.mock-node').forEach(function(n){n.remove();});
-        selectBody();
-        canvasInner.innerHTML = '<span style="color:rgba(0,0,0,0.25);font-size:12px;" id="canvas-empty">Add an element to start</span>';
-        canvasFrame.style.background = 'white';
-        setProps({ name:'Body', badge:'box', p:'0', w:'Auto', h:'Auto', fill:'white', swatch:'white', radius:'0' });
+        hideCursor();
+        canvasFrame.style.opacity = '0';
+        setTimeout(function() {
+          tree.querySelectorAll('.mock-node').forEach(function(n){n.remove();});
+          selectBody();
+          canvasInner.style.display = ''; canvasInner.innerHTML = '';
+          canvasFrame.style.inset = '0'; canvasFrame.style.width = ''; canvasFrame.style.margin = '';
+          canvasFrame.style.background = 'white';
+          setProps({ name:'Body', badge:'box', p:'0', w:'Auto', h:'Auto', fill:'white', swatch:'white', radius:'0' });
+          canvasFrame.style.opacity = '1';
+        }, 600);
       }},
     ];
 
@@ -611,12 +805,13 @@
     function run() {
       if (idx >= script.length) idx = 0;
       var s = script[idx++];
-      if (s.type === 'clear') { lines.innerHTML = ''; if(s.sync)s.sync(); setTimeout(run, 800); }
+      if (s.type === 'clear') { lines.innerHTML = ''; if(s.sync)s.sync(); setTimeout(run, 1500); }
       else if (s.type === 'pause') { setTimeout(run, s.ms); }
-      else if (s.type === 'prompt') { if(s.sync)s.sync(); typeText(s.text, function(t) { addLine('mb-1','<span style="color:#33ff00aa;">$</span> <span style="color:#33ff00;">'+t+'</span>'); setTimeout(run,400); }); }
-      else if (s.type === 'tool') { if(s.sync)s.sync(); addLine('','<span class="inline-block w-1.5 h-1.5 rounded-full mr-1.5 align-middle" style="background:#33ff0040;"></span><span style="color:#33ff0055;">'+s.text+'</span>'); setTimeout(run,350); }
-      else if (s.type === 'result') { if(s.sync)s.sync(); addLine('ml-3','<span style="color:#33ff0033;">'+s.text+'</span>'); setTimeout(run,300); }
-      else if (s.type === 'done') { if(s.sync)s.sync(); addLine('mt-1 mb-1','<span style="color:#33ff0077;">'+s.text+'</span>'); setTimeout(run,600); }
+      else if (s.type === 'prompt') { if(s.sync)s.sync(); typeText(s.text, function(t) { addLine('mb-1','<span style="color:#33ff00aa;">$</span> <span style="color:#33ff00;">'+t+'</span>'); setTimeout(run,700); }); }
+      else if (s.type === 'tool') { if(s.sync)s.sync(); addLine('','<span class="inline-block w-1.5 h-1.5 rounded-full mr-1.5 align-middle" style="background:#33ff0040;"></span><span style="color:#33ff0055;">'+s.text+'</span>'); setTimeout(run,500); }
+      else if (s.type === 'result') { if(s.sync)s.sync(); addLine('ml-3','<span style="color:#33ff0033;">'+s.text+'</span>'); setTimeout(run,450); }
+      else if (s.type === 'done') { if(s.sync)s.sync(); addLine('mt-1 mb-1','<span style="color:#33ff0077;">'+s.text+'</span>'); setTimeout(run,1000); }
+      else if (s.type === 'cursor') { if(s.sync)s.sync(); setTimeout(run, 100); }
     }
     setTimeout(run, 1800);
   })();
