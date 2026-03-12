@@ -3,13 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Caja — Visual Layout Design Tool</title>
-  <meta name="description" content="Design layouts visually with AI. Export clean Tailwind code. Free and open source.">
+  <title>Caja — Design, and done</title>
+  <meta name="description" content="The canvas is the browser. Design with real HTML, CSS, and Tailwind. AI-native via MCP. Free and open source.">
   <link rel="icon" href="caja-symbol.png">
 
   <!-- Open Graph -->
-  <meta property="og:title" content="Caja — Visual Layout Design Tool">
-  <meta property="og:description" content="Design layouts visually with AI. Export clean Tailwind code. Free and open source.">
+  <meta property="og:title" content="Caja — Design, and done">
+  <meta property="og:description" content="The canvas is the browser. Design with real HTML, CSS, and Tailwind. AI-native via MCP. Free and open source.">
   <meta property="og:image" content="https://getcaja.app/caja-symbol.png">
   <meta property="og:url" content="https://getcaja.app">
   <meta property="og:type" content="website">
@@ -50,40 +50,6 @@
     .d3 { animation-delay: 0.2s; }
     .d4 { animation-delay: 0.3s; }
     .d5 { animation-delay: 0.4s; }
-    .mock-node { transition: opacity 0.3s ease; }
-
-    @keyframes mcp-pulse {
-      0%   { outline-color: transparent; }
-      15%  { outline-color: #c7d2fe; }
-      55%  { outline-color: #818cf8; }
-      100% { outline-color: transparent; }
-    }
-    .mcp-flash {
-      outline: 2px solid transparent;
-      outline-offset: -1px;
-      animation: mcp-pulse 0.8s ease-out;
-    }
-
-    #mock-cursor {
-      position: absolute;
-      width: 28px; height: 36px;
-      pointer-events: none;
-      z-index: 50;
-      opacity: 0;
-      transition: top 0.8s cubic-bezier(0.4,0,0.2,1), left 0.8s cubic-bezier(0.4,0,0.2,1), opacity 0.3s ease;
-      filter: drop-shadow(0 2px 6px rgba(0,0,0,0.6));
-    }
-
-    @keyframes click-ripple {
-      0%   { transform: scale(0); opacity: 0.5; }
-      100% { transform: scale(1); opacity: 0; }
-    }
-    .click-ring {
-      position: absolute; pointer-events: none; z-index: 49;
-      width: 36px; height: 36px; border-radius: 50%;
-      border: 2px solid #0c8ce9;
-      animation: click-ripple 0.5s ease-out forwards;
-    }
 
   </style>
 </head>
@@ -98,8 +64,8 @@
         <span class="font-semibold text-base text-white">Caja</span>
       </a>
       <div class="flex items-center gap-5">
-        <a href="https://docs.getcaja.app" class="text-sm text-white/40 hover:text-white/80 transition-colors">Docs</a>
-        <a href="https://github.com/getcaja/caja" class="text-white/40 hover:text-white/80 transition-colors" aria-label="GitHub">
+        <a href="https://docs.getcaja.app" class="text-sm text-white hover:text-white/70 transition-colors">Docs</a>
+        <a href="https://github.com/getcaja/caja" class="text-white hover:text-white/70 transition-colors" aria-label="GitHub">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
         </a>
       </div>
@@ -110,10 +76,10 @@
   <section class="relative flex flex-col items-center pt-16 px-6">
 
     <h1 class="fade-up d1 text-5xl sm:text-6xl font-bold tracking-tight text-center text-white leading-[1.1]">
-      Design at the speed of code.
+      Design, and&nbsp;done.
     </h1>
-    <p class="fade-up d2 mt-5 text-lg text-white/30 text-center max-w-xl leading-relaxed">
-      Visual editor, real code output. Let AI build for you, adjust on canvas, or both. No translation layer, the tech you already&nbsp;use.
+    <p class="fade-up d2 mt-5 text-lg text-center max-w-xl leading-normal" style="color:#aaa;">
+      Caja is a design tool built for the AI era. Your browser engine is the canvas, no middleware, no translation layers. Design by hand, delegate to AI, or&nbsp;both.
     </p>
 
     <div class="fade-up d3 mt-7 flex flex-col items-center gap-2.5">
@@ -125,265 +91,340 @@
         </svg>
         Download for macOS
       </a>
-      <span class="text-xs" style="color:#555;">Free and Open Source · <a href="https://github.com/getcaja/caja/releases/latest/download/Caja_x64.dmg" class="underline hover:text-white/60 transition-colors" style="color:#555;">macOS Intel</a></span>
+      <span class="text-xs" style="color:#666;">Free and Open Source · <a href="https://github.com/getcaja/caja/releases/latest/download/Caja_x64.dmg" class="underline hover:text-white/60 transition-colors" style="color:#666;">macOS Intel</a></span>
     </div>
 
     <!-- APP MOCKUP -->
     <div class="fade-up d4 mt-14 w-full max-w-5xl relative">
 
-      <div id="mockup-app" class="rounded-xl overflow-hidden border border-[#2a2a2e] shadow-2xl shadow-black/60 text-left" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; will-change: transform;">
+      <div id="mockup-app" class="rounded-xl overflow-hidden shadow-2xl shadow-black/60 text-left" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; will-change: transform; border: 1px solid #3a3a3a;">
 
-        <!-- Title bar: 38px, bg-surface-0/60 -->
-        <div class="flex items-center justify-center relative backdrop-blur-md border-b border-[rgba(255,255,255,0.08)]" style="height:38px;background:rgba(25,25,25,0.6);">
+        <!-- Title bar -->
+        <div class="flex items-center justify-center relative" style="height:38px;background:rgba(30,30,30,0.60);border-bottom:1px solid #333333;">
           <div class="absolute flex gap-2" style="left:12px;">
             <div class="w-3 h-3 rounded-full bg-[#ff5f57]"></div>
             <div class="w-3 h-3 rounded-full bg-[#febc2e]"></div>
             <div class="w-3 h-3 rounded-full bg-[#28c840]"></div>
           </div>
-          <span class="text-[12px]" style="color:#a1a1a1;">Untitled — Caja</span>
+          <span class="text-[12px]" style="color:#787878;">Caja</span>
         </div>
 
         <!-- App body -->
         <div class="flex" style="height:clamp(360px,54vh,520px);">
 
-          <!-- ====== LEFT: Tree Panel (224px) ====== -->
-          <div class="shrink-0 border-r border-[rgba(255,255,255,0.08)] flex flex-col text-[12px] hidden sm:flex" style="width:200px;background:rgba(34,34,34,0.8);">
+          <!-- ====== LEFT: Tree Panel ====== -->
+          <div class="shrink-0 flex flex-col text-[12px] hidden sm:flex" style="width:200px;background:rgba(30,30,30,0.85);border-right:1px solid #333333;">
 
-            <!-- Tab bar: File / Assets -->
-            <div class="flex items-center justify-between border-b border-[rgba(255,255,255,0.08)]" style="padding:10px 16px 10px 10px;">
+            <!-- Tab bar (File | Assets) -->
+            <div class="flex items-center" style="height:40px;padding:0 16px 0 12px;border-bottom:1px solid #333333;">
               <div class="flex items-center gap-1">
-                <span class="font-semibold px-1.5 py-0.5 rounded" style="color:#f0f0f0;">File</span>
-                <span class="font-semibold px-1.5 py-0.5 rounded" style="color:#717171;">Assets</span>
-              </div>
-              <div class="w-5 h-5 flex items-center justify-center rounded" style="color:#717171;">
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+                <button class="font-semibold px-1 py-0.5 rounded" style="color:#ffffff;font-size:12px;">File</button>
+                <button class="font-semibold px-1 py-0.5 rounded" style="color:#787878;font-size:12px;">Assets</button>
               </div>
             </div>
 
             <!-- Pages section -->
-            <div class="border-b border-[rgba(255,255,255,0.08)]" style="padding:12px 0;">
-              <div class="flex items-center justify-between" style="padding:0 16px;">
-                <span class="font-semibold" style="color:#f0f0f0;">Pages</span>
-                <div class="w-5 h-5 flex items-center justify-center rounded" style="color:#717171;">
-                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
-                </div>
+            <div style="border-bottom:1px solid #333333;">
+              <div class="flex items-center" style="height:40px;padding:0 16px;">
+                <span style="color:#ffffff;font-size:12px;font-weight:600;">Pages</span>
               </div>
-              <div style="padding:6px 8px 0;">
-                <div class="flex items-center justify-between rounded" style="padding:4px 8px;color:#a1a1a1;">
-                  <div class="flex items-center gap-1.5 font-semibold">
-                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/></svg>
-                    Page 1
-                  </div>
-                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color:#a1a1a1;"><polyline points="20 6 9 17 4 12"/></svg>
-                </div>
+              <div class="flex flex-col" style="padding:0 8px 8px;gap:2px;">
+                <div class="flex items-center rounded" style="padding:4px 8px;color:#ffffff;background:#2c2c2c;">Page 1</div>
+                <div class="flex items-center rounded" style="padding:4px 8px;color:#787878;">Page 2</div>
+                <div class="flex items-center rounded" style="padding:4px 8px;color:#787878;">Page 3</div>
+                <div class="flex items-center rounded" style="padding:4px 8px;color:#787878;">Page 4</div>
               </div>
             </div>
 
-            <!-- Layers section -->
-            <div class="flex-1 overflow-hidden" style="padding:12px 0 0;">
-              <div class="flex items-center justify-between" style="padding:0 16px;">
-                <span class="font-semibold" style="color:#f0f0f0;">Layers</span>
-                <div class="w-5 h-5 flex items-center justify-center rounded" style="color:#717171;">
-                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m7 15 5 5 5-5"/><path d="m7 9 5-5 5 5"/></svg>
-                </div>
+            <!-- Elements section -->
+            <div class="flex-1 overflow-hidden">
+              <div class="flex items-center" style="height:40px;padding:0 16px;">
+                <span style="color:#ffffff;font-size:12px;font-weight:600;">Elements</span>
               </div>
-              <div class="flex flex-col" style="padding:8px 4px 0;gap:2px;" id="mock-tree">
-                <!-- Body row (selected by default) -->
-                <div class="flex items-center gap-1 rounded" id="tree-body" style="padding:4px 8px;padding-left:16px;background:rgba(12,140,233,0.15);color:#6bb8f0;">
-                  <div class="w-4 h-4 flex items-center justify-center shrink-0">
-                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" x2="2" y1="6" y2="6"/><line x1="22" x2="2" y1="18" y2="18"/><line x1="6" x2="6" y1="2" y2="22"/><line x1="18" x2="18" y1="2" y2="22"/></svg>
-                  </div>
-                  Body
+              <div class="flex flex-col" id="mock-tree">
+                <!-- Body row (selected) — depth 0, paddingLeft: 16px, paddingRight: 16px -->
+                <div class="flex items-center gap-1" id="tree-body" style="padding:4px 16px 4px 16px;background:#2c2c2c;color:#ffffff;">
+                  <span class="w-4 h-4 flex items-center justify-center shrink-0">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10 2v3a1 1 0 0 0 1 1h3"/><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/><path d="m10 13-2 2 2 2"/><path d="m14 17 2-2-2-2"/></svg>
+                  </span>
+                  <span class="flex-1 h-5 flex items-center truncate">Body</span>
                 </div>
               </div>
             </div>
           </div>
 
           <!-- ====== CENTER: Canvas ====== -->
-          <div class="flex-1 relative overflow-hidden" style="background:#0e0e11;">
-            <!-- Artboard (fills canvas, shrinks on responsive) -->
-            <div class="absolute inset-0 overflow-hidden overflow-y-auto" id="canvas-frame" style="background:white;transition:all 0.5s ease;">
-              <div id="canvas-inner" class="h-full flex items-center justify-center">
-                <span style="color:rgba(0,0,0,0.15);font-size:12px;" id="canvas-empty"></span>
+          <div class="flex-1 relative overflow-hidden" style="background:#121212;">
+            <!-- Artboard with synced text -->
+            <div class="absolute inset-0 overflow-hidden" id="canvas-frame" style="background:white;transition:background 0.8s ease;">
+              <div class="h-full flex items-center justify-center px-12">
+                <div id="canvas-title" style="font-weight:800;font-size:32px;color:#111;line-height:1.1;letter-spacing:-1px;text-align:center;transition:color 0.8s ease, opacity 0.5s ease;"></div>
               </div>
             </div>
 
-            <!-- Mock cursor -->
-            <svg id="mock-cursor" viewBox="0 0 24 24" fill="white" stroke="black" stroke-width="1.5"><path d="M3 3l7.07 16.97 2.51-7.39 7.39-2.51L3 3z"/></svg>
-
             <!-- Floating toolbar -->
-            <div class="absolute flex items-stretch rounded-lg border border-[rgba(255,255,255,0.08)]" style="bottom:12px;left:50%;transform:translateX(-50%);background:#222222;padding:4px;">
-              <!-- Add button -->
-              <div class="w-7 h-7 flex items-center justify-center rounded-md" style="color:#717171;">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
-              </div>
-              <!-- Tools group -->
-              <div class="flex rounded-md" style="background:rgba(25,25,25,0.5);padding:2px;gap:2px;margin-left:2px;">
+            <div class="absolute flex items-stretch rounded-lg" style="bottom:12px;left:50%;transform:translateX(-50%);background:#1e1e1e;border:1px solid #3a3a3a;box-shadow:0 1px 4px rgba(0,0,0,0.12), 0 4px 8px rgba(0,0,0,0.08);padding:4px 6px;">
+              <div class="flex items-center" style="gap:4px;">
                 <!-- Pointer (active) -->
-                <div class="w-6 h-6 flex items-center justify-center rounded" style="background:rgba(255,255,255,0.14);color:#f0f0f0;">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3l7.07 16.97 2.51-7.39 7.39-2.51L3 3z"/></svg>
+                <div class="w-7 h-7 flex items-center justify-center rounded-md" style="background:#3378F6;color:#ffffff;">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3l7.07 16.97 2.51-7.39 7.39-2.51L3 3z"/></svg>
                 </div>
                 <!-- Frame -->
-                <div class="w-6 h-6 flex items-center justify-center rounded" style="color:#717171;">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/></svg>
+                <div class="w-7 h-7 flex items-center justify-center rounded-md" style="color:#ffffff;">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" x2="2" y1="6" y2="6"/><line x1="22" x2="2" y1="18" y2="18"/><line x1="6" x2="6" y1="2" y2="22"/><line x1="18" x2="18" y1="2" y2="22"/></svg>
                 </div>
-                <!-- Text -->
-                <div class="w-6 h-6 flex items-center justify-center rounded" style="color:#717171;">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7V4h16v3"/><path d="M9 20h6"/><path d="M12 4v16"/></svg>
+                <!-- Type -->
+                <div class="w-7 h-7 flex items-center justify-center rounded-md" style="color:#ffffff;">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7V4h16v3"/><path d="M9 20h6"/><path d="M12 4v16"/></svg>
                 </div>
-              </div>
-              <!-- Divider -->
-              <div class="self-stretch shrink-0" style="width:1px;background:rgba(255,255,255,0.08);margin:0 4px;"></div>
-              <!-- Viewport -->
-              <div class="w-7 h-7 flex items-center justify-center rounded-md" style="color:#717171;">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
-              </div>
-              <!-- Preview -->
-              <div class="w-7 h-7 flex items-center justify-center rounded-md" style="color:#717171;">
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>
+                <!-- Image -->
+                <div class="w-7 h-7 flex items-center justify-center rounded-md" style="color:#ffffff;">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="3" rx="2" ry="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/></svg>
+                </div>
+                <!-- More -->
+                <div class="w-7 h-7 flex items-center justify-center rounded-md" style="color:#ffffff;">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/><circle cx="5" cy="12" r="1"/></svg>
+                </div>
               </div>
             </div>
           </div>
 
-          <!-- ====== RIGHT: Properties Panel (240px) ====== -->
-          <div class="shrink-0 border-l border-[rgba(255,255,255,0.08)] flex flex-col text-[12px] hidden md:flex overflow-hidden" style="width:210px;background:rgba(34,34,34,0.8);">
-
-            <!-- Scrollable properties -->
+          <!-- ====== RIGHT: Properties Panel ====== -->
+          <div class="shrink-0 flex flex-col text-[12px] hidden md:flex overflow-hidden" style="width:240px;background:rgba(30,30,30,0.85);border-left:1px solid #333333;">
             <div class="flex-1 overflow-y-auto">
 
-              <!-- Element section -->
-              <div class="flex flex-col gap-2 border-b border-[rgba(255,255,255,0.08)]" style="padding:12px 16px;">
-                <div class="flex items-center gap-2">
-                  <span class="font-medium rounded-md" id="props-badge" style="font-size:12px;padding:2px 6px;background:rgba(12,140,233,0.15);color:#0c8ce9;">box</span>
-                  <span class="flex-1 truncate" id="props-name" style="color:#a1a1a1;">Body</span>
-                  <div class="w-5 h-5 flex items-center justify-center rounded shrink-0" style="color:#717171;">
-                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>
+              <!-- Properties section -->
+              <div style="padding:0 16px 12px;border-bottom:1px solid #333333;">
+                <div class="flex items-center" style="height:40px;gap:8px;">
+                  <span style="color:#ffffff;font-size:12px;font-weight:600;">Properties</span>
+                </div>
+                <div class="flex flex-col" style="gap:8px;">
+                  <!-- Badge + Name -->
+                  <div class="flex items-center gap-2">
+                    <span id="props-badge" style="display:inline-flex;align-items:center;height:24px;padding:0 6px;border-radius:4px;font-size:12px;font-weight:600;line-height:1;color:#6B9DF7;background:rgba(51,120,246,0.15);white-space:nowrap;">Body</span>
+                    <div class="flex-1 h-6 rounded truncate flex items-center" id="props-name" style="background:#2c2c2c;border:1px solid #2c2c2c;padding:0 8px;color:#ffffff;">Body</div>
+                  </div>
+                  <!-- Class + ID -->
+                  <div class="flex items-center gap-2">
+                    <div class="flex-1 h-6 flex items-center rounded" style="background:#2c2c2c;border:1px solid #2c2c2c;padding:0 4px;gap:4px;">
+                      <span style="color:#787878;font-size:12px;width:16px;text-align:center;flex-shrink:0;">{ }</span>
+                      <span style="color:#787878;">Class</span>
+                    </div>
+                    <div class="flex-1 h-6 flex items-center rounded" style="background:#2c2c2c;border:1px solid #2c2c2c;padding:0 4px;gap:4px;">
+                      <span style="color:#787878;font-size:12px;width:16px;text-align:center;flex-shrink:0;">#</span>
+                      <span style="color:#787878;">ID</span>
+                    </div>
                   </div>
                 </div>
               </div>
 
               <!-- Position section (collapsed) -->
-              <div class="border-b border-[rgba(255,255,255,0.08)]" style="padding:14px 16px;">
-                <span class="font-semibold" style="color:#f0f0f0;">Position</span>
-                <div class="mt-2">
-                  <div class="h-6 flex items-center rounded" style="background:rgba(255,255,255,0.15);padding:0 8px;color:#a1a1a1;">Static</div>
+              <div style="border-bottom:1px solid #333333;">
+                <div class="flex items-center" style="height:40px;padding:0 16px;gap:8px;">
+                  <span style="color:#ffffff;font-size:12px;font-weight:600;">Position</span>
+                  <span class="flex-1"></span>
+                  <div class="w-6 h-6 flex items-center justify-center rounded shrink-0" style="color:#787878;">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/><circle cx="5" cy="12" r="1"/></svg>
+                  </div>
                 </div>
               </div>
 
               <!-- Layout section -->
-              <div class="border-b border-[rgba(255,255,255,0.08)]" style="padding:14px 16px;">
-                <span class="font-semibold" style="color:#f0f0f0;">Layout</span>
-                <div class="flex flex-col gap-2 mt-2">
-                  <!-- Direction toggle group -->
-                  <div class="flex items-center gap-2">
-                    <div class="flex flex-1 rounded" style="background:rgba(255,255,255,0.15);">
-                      <div class="flex-1 h-6 flex items-center justify-center rounded" style="background:rgba(255,255,255,0.14);color:#f0f0f0;">
-                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="4" width="16" height="16" rx="1"/></svg>
-                      </div>
-                      <div class="flex-1 h-6 flex items-center justify-center rounded" style="color:#717171;">
-                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14"/><path d="m19 12-7 7-7-7"/></svg>
-                      </div>
-                      <div class="flex-1 h-6 flex items-center justify-center rounded" style="color:#717171;">
-                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
-                      </div>
-                      <div class="flex-1 h-6 flex items-center justify-center rounded" style="color:#717171;">
-                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
-                      </div>
-                    </div>
-                  </div>
-                  <!-- W + H -->
-                  <div class="flex items-center gap-2">
-                    <div class="flex-1 h-6 flex items-center rounded gap-0.5" style="background:rgba(255,255,255,0.15);padding:0 4px;">
-                      <span style="color:#a1a1a1;width:16px;text-align:center;flex-shrink:0;">W</span>
-                      <span class="rounded font-medium" style="background:rgba(255,255,255,0.14);color:#f0f0f0;padding:0 4px;font-size:11px;line-height:18px;" id="props-w">Auto</span>
-                    </div>
-                    <div class="flex-1 h-6 flex items-center rounded gap-0.5" style="background:rgba(255,255,255,0.15);padding:0 4px;">
-                      <span style="color:#a1a1a1;width:16px;text-align:center;flex-shrink:0;">H</span>
-                      <span class="rounded font-medium" style="background:rgba(255,255,255,0.14);color:#f0f0f0;padding:0 4px;font-size:11px;line-height:18px;" id="props-h">Auto</span>
-                    </div>
-                  </div>
-                  <!-- P + M -->
-                  <div class="flex items-center gap-2">
-                    <div class="flex-1 h-6 flex items-center rounded gap-0.5" style="background:rgba(255,255,255,0.15);padding:0 4px;">
-                      <span style="color:#717171;width:16px;text-align:center;flex-shrink:0;font-size:12px;">P</span>
-                      <span style="color:#a1a1a1;" id="props-p">0</span>
-                    </div>
-                    <div class="flex-1 h-6 flex items-center rounded gap-0.5" style="background:rgba(255,255,255,0.15);padding:0 4px;">
-                      <span style="color:#717171;width:16px;text-align:center;flex-shrink:0;font-size:12px;">M</span>
-                      <span style="color:#a1a1a1;">0</span>
-                    </div>
-                  </div>
-                  <!-- Clip checkbox -->
-                  <div class="flex items-center gap-1.5">
-                    <span class="flex items-center justify-center rounded-sm border" style="width:14px;height:14px;border-color:rgba(255,255,255,0.12);background:rgba(255,255,255,0.15);"></span>
-                    <span style="color:#717171;">Clip</span>
+              <div style="padding:0 16px 12px;border-bottom:1px solid #333333;">
+                <div class="flex items-center" style="height:40px;gap:8px;">
+                  <span style="color:#ffffff;font-size:12px;font-weight:600;">Layout</span>
+                  <span class="flex-1"></span>
+                  <div class="w-6 h-6 flex items-center justify-center rounded shrink-0" style="color:#787878;">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/><circle cx="5" cy="12" r="1"/></svg>
                   </div>
                 </div>
-              </div>
-
-              <!-- Appearance section -->
-              <div class="border-b border-[rgba(255,255,255,0.08)]" style="padding:14px 16px;">
-                <span class="font-semibold" style="color:#f0f0f0;">Appearance</span>
-                <div class="flex flex-col gap-2 mt-2">
-                  <!-- Radius -->
+                <div class="flex flex-col" style="gap:8px;">
+                  <!-- Direction toggle + settings -->
                   <div class="flex items-center gap-2">
-                    <div class="flex-1 h-6 flex items-center rounded gap-0.5" style="background:rgba(255,255,255,0.15);padding:0 4px;">
-                      <span style="color:#717171;width:16px;text-align:center;flex-shrink:0;">
-                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:inline-block;vertical-align:middle;"><path d="M12 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M3 3a18 18 0 0 1 18 18"/></svg>
-                      </span>
-                      <span style="color:#a1a1a1;" id="props-radius">0</span>
+                    <div class="flex flex-1 items-center h-6 rounded overflow-hidden" style="background:#2c2c2c;border:1px solid #2c2c2c;">
+                      <div class="flex-1 h-full flex items-center justify-center rounded" style="background:#1e1e1e;color:#ffffff;">
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="7" height="7" x="14" y="3" rx="1"/><rect width="7" height="7" x="14" y="14" rx="1"/><path d="m2 7 4-4 4 4"/><path d="M6 3v18"/><path d="m2 17 4 4 4-4"/></svg>
+                      </div>
+                      <div class="flex-1 h-full flex items-center justify-center" style="color:#787878;">
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="7" height="7" x="3" y="3" rx="1"/><rect width="7" height="7" x="14" y="3" rx="1"/><path d="m7 14-4 4 4 4"/><path d="M21 18H3"/><path d="m17 14 4 4-4 4"/></svg>
+                      </div>
+                      <div class="flex-1 h-full flex items-center justify-center" style="color:#787878;">
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="7" height="7" x="3" y="3" rx="1"/><rect width="7" height="7" x="14" y="3" rx="1"/><rect width="7" height="7" x="3" y="14" rx="1"/><rect width="7" height="7" x="14" y="14" rx="1"/></svg>
+                      </div>
+                    </div>
+                    <div class="w-6 h-6 flex items-center justify-center rounded shrink-0" style="color:#787878;">
+                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 7h-9"/><path d="M14 17H5"/><circle cx="17" cy="17" r="3"/><circle cx="7" cy="7" r="3"/></svg>
                     </div>
                   </div>
-                  <!-- Opacity -->
+                  <!-- W + H + settings -->
                   <div class="flex items-center gap-2">
-                    <div class="flex-1 h-6 flex items-center rounded gap-0.5" style="background:rgba(255,255,255,0.15);padding:0 4px;">
-                      <span style="color:#717171;width:16px;text-align:center;flex-shrink:0;">
-                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display:inline-block;vertical-align:middle;"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/></svg>
-                      </span>
-                      <span style="color:#a1a1a1;">100</span>
+                    <div class="flex-1 h-6 flex items-center rounded" style="background:#2c2c2c;border:1px solid #2c2c2c;padding:0 4px;gap:4px;">
+                      <span style="color:#787878;width:16px;text-align:center;flex-shrink:0;">W</span>
+                      <span class="rounded font-medium" id="props-w" style="background:#1e1e1e;color:#ffffff;padding:1px 4px;font-size:11px;line-height:18px;border:1px solid #3a3a3a;">Auto</span>
                     </div>
+                    <div class="flex-1 h-6 flex items-center rounded" style="background:#2c2c2c;border:1px solid #2c2c2c;padding:0 4px;gap:4px;">
+                      <span style="color:#787878;width:16px;text-align:center;flex-shrink:0;">H</span>
+                      <span class="rounded font-medium" id="props-h" style="background:#1e1e1e;color:#ffffff;padding:1px 4px;font-size:11px;line-height:18px;border:1px solid #3a3a3a;">Auto</span>
+                    </div>
+                    <div class="w-6 h-6 flex items-center justify-center rounded shrink-0" style="color:#787878;">
+                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 7h-9"/><path d="M14 17H5"/><circle cx="17" cy="17" r="3"/><circle cx="7" cy="7" r="3"/></svg>
+                    </div>
+                  </div>
+                  <!-- Gap input + settings -->
+                  <div class="flex items-center gap-2">
+                    <div class="flex-1 h-6 flex items-center rounded" style="background:#2c2c2c;border:1px solid #2c2c2c;padding:0 4px;gap:4px;">
+                      <span class="flex items-center justify-center shrink-0" style="width:16px;color:#787878;">
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="6" height="10" x="9" y="7" rx="2"/><path d="M4 22V2"/><path d="M20 22V2"/></svg>
+                      </span>
+                      <span style="color:#b3b3b3;">0</span>
+                    </div>
+                    <div class="w-6 h-6 flex items-center justify-center rounded shrink-0" style="color:#787878;">
+                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 7h-9"/><path d="M14 17H5"/><circle cx="17" cy="17" r="3"/><circle cx="7" cy="7" r="3"/></svg>
+                    </div>
+                  </div>
+                  <!-- P -->
+                  <div class="flex items-center gap-2">
+                    <div class="flex-1 h-6 flex items-center rounded" style="background:#2c2c2c;border:1px solid #2c2c2c;padding:0 4px;gap:4px;">
+                      <span style="color:#787878;width:16px;text-align:center;flex-shrink:0;">P</span>
+                      <span style="color:#b3b3b3;" id="props-p">0</span>
+                    </div>
+                    <div class="w-6 h-6 flex items-center justify-center rounded shrink-0" style="color:#787878;">
+                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7V5a2 2 0 0 1 2-2h2"/><path d="M17 3h2a2 2 0 0 1 2 2v2"/><path d="M21 17v2a2 2 0 0 1-2 2h-2"/><path d="M7 21H5a2 2 0 0 1-2-2v-2"/></svg>
+                    </div>
+                  </div>
+                  <!-- M -->
+                  <div class="flex items-center gap-2">
+                    <div class="flex-1 h-6 flex items-center rounded" style="background:#2c2c2c;border:1px solid #2c2c2c;padding:0 4px;gap:4px;">
+                      <span style="color:#787878;width:16px;text-align:center;flex-shrink:0;">M</span>
+                      <span style="color:#b3b3b3;">0</span>
+                    </div>
+                    <div class="w-6 h-6 flex items-center justify-center rounded shrink-0" style="color:#787878;">
+                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7V5a2 2 0 0 1 2-2h2"/><path d="M17 3h2a2 2 0 0 1 2 2v2"/><path d="M21 17v2a2 2 0 0 1-2 2h-2"/><path d="M7 21H5a2 2 0 0 1-2-2v-2"/></svg>
+                    </div>
+                  </div>
+                  <!-- Clip Overflow -->
+                  <div class="flex items-center" style="gap:6px;">
+                    <span class="flex items-center justify-center rounded-sm shrink-0" style="width:14px;height:14px;border:1px solid #3a3a3a;border-radius:3px;"></span>
+                    <span style="color:#999999;">Clip Overflow</span>
+                  </div>
+                  <!-- Hide Element -->
+                  <div class="flex items-center" style="gap:6px;">
+                    <span class="flex items-center justify-center rounded-sm shrink-0" style="width:14px;height:14px;border:1px solid #3a3a3a;border-radius:3px;"></span>
+                    <span style="color:#999999;">Hide Element</span>
                   </div>
                 </div>
               </div>
 
               <!-- Fill section -->
-              <div class="border-b border-[rgba(255,255,255,0.08)]" style="padding:14px 16px;">
-                <span class="font-semibold" style="color:#f0f0f0;">Fill</span>
-                <div class="flex flex-col gap-2 mt-2">
-                  <!-- Solid / Image toggle -->
-                  <div class="flex items-center gap-2">
-                    <div class="flex flex-1 rounded" style="background:rgba(255,255,255,0.15);">
-                      <div class="flex-1 h-6 flex items-center justify-center rounded" style="background:rgba(255,255,255,0.14);color:#f0f0f0;">Solid</div>
-                      <div class="flex-1 h-6 flex items-center justify-center rounded" style="color:#717171;">Image</div>
+              <div style="padding:0 16px 12px;border-bottom:1px solid #333333;">
+                <div class="flex items-center" style="height:40px;gap:8px;">
+                  <span style="color:#ffffff;font-size:12px;font-weight:600;">Fill</span>
+                  <span class="flex-1"></span>
+                  <div class="w-6 h-6 flex items-center justify-center rounded shrink-0" style="color:#787878;">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/><circle cx="5" cy="12" r="1"/></svg>
+                  </div>
+                </div>
+                <div class="flex flex-col" style="gap:8px;">
+                  <!-- Opacity -->
+                  <div class="flex items-center">
+                    <div class="flex-1 h-6 flex items-center rounded" style="background:#2c2c2c;border:1px solid #2c2c2c;padding:0 4px;gap:4px;">
+                      <span class="flex items-center justify-center shrink-0" style="width:16px;color:#787878;">
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 18a6 6 0 0 0 0-12v12z"/></svg>
+                      </span>
+                      <span style="color:#b3b3b3;">100</span>
                     </div>
                   </div>
-                  <!-- Color swatch + value -->
+                  <!-- Solid / Image toggle -->
                   <div class="flex items-center gap-2">
-                    <div class="flex-1 h-6 flex items-center rounded gap-1" style="background:rgba(255,255,255,0.15);padding:0 4px;">
+                    <div class="flex flex-1 items-center h-6 rounded overflow-hidden" style="background:#2c2c2c;border:1px solid #2c2c2c;">
+                      <div class="flex-1 h-full flex items-center justify-center rounded" style="background:#1e1e1e;color:#ffffff;">Solid</div>
+                      <div class="flex-1 h-full flex items-center justify-center" style="color:#787878;">Image</div>
+                    </div>
+                  </div>
+                  <!-- Color swatch + value + opacity -->
+                  <div class="flex items-center gap-2">
+                    <div class="flex-1 h-6 flex items-center rounded" style="background:#2c2c2c;border:1px solid #2c2c2c;padding:0 4px;gap:4px;">
                       <span class="flex items-center justify-center shrink-0" style="width:16px;">
-                        <span class="rounded-sm border border-[rgba(255,255,255,0.08)]" id="props-swatch" style="width:12px;height:12px;display:block;background:white;transition:background 0.5s;"></span>
+                        <span class="rounded-full" id="props-swatch" style="width:12px;height:12px;display:block;background:white;transition:background 0.5s;border:1px solid rgba(255,255,255,0.5);"></span>
                       </span>
-                      <span style="color:#a1a1a1;" id="props-fill">white</span>
+                      <span style="color:#b3b3b3;" id="props-fill">White</span>
+                    </div>
+                    <div class="h-6 flex items-center rounded" style="background:#2c2c2c;border:1px solid #2c2c2c;padding:0 4px;gap:4px;width:72px;">
+                      <span class="flex items-center justify-center shrink-0" style="width:16px;color:#787878;">
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="9" r="7"/><circle cx="15" cy="15" r="7"/></svg>
+                      </span>
+                      <span style="color:#b3b3b3;">100</span>
                     </div>
                   </div>
                 </div>
               </div>
 
-              <!-- Collapsed sections -->
-              <div class="border-b border-[rgba(255,255,255,0.08)]" style="padding:14px 16px;">
-                <span class="font-semibold" style="color:#f0f0f0;">Border</span>
+              <!-- Border section -->
+              <div style="padding:0 16px 12px;border-bottom:1px solid #333333;">
+                <div class="flex items-center" style="height:40px;gap:8px;">
+                  <span style="color:#ffffff;font-size:12px;font-weight:600;">Border</span>
+                  <span class="flex-1"></span>
+                  <div class="w-6 h-6 flex items-center justify-center rounded shrink-0" style="color:#787878;">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/><circle cx="5" cy="12" r="1"/></svg>
+                  </div>
+                </div>
+                <div class="flex flex-col" style="gap:8px;">
+                  <!-- Radius -->
+                  <div class="flex items-center gap-2">
+                    <div class="flex-1 h-6 flex items-center rounded" style="background:#2c2c2c;border:1px solid #2c2c2c;padding:0 4px;gap:4px;">
+                      <span class="flex items-center justify-center shrink-0" style="width:16px;color:#787878;">
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c7.2 0 9 1.8 9 9s-1.8 9-9 9-9-1.8-9-9 1.8-9 9-9"/></svg>
+                      </span>
+                      <span style="color:#b3b3b3;" id="props-radius">0</span>
+                    </div>
+                  </div>
+                  <!-- Style toggle -->
+                  <div class="flex items-center gap-2">
+                    <div class="flex flex-1 items-center h-6 rounded overflow-hidden" style="background:#2c2c2c;border:1px solid #2c2c2c;">
+                      <div class="flex-1 h-full flex items-center justify-center rounded" style="background:#1e1e1e;color:#ffffff;">None</div>
+                      <div class="flex-1 h-full flex items-center justify-center" style="color:#787878;">Solid</div>
+                      <div class="flex-1 h-full flex items-center justify-center" style="color:#787878;">Dashed</div>
+                      <div class="flex-1 h-full flex items-center justify-center" style="color:#787878;">Dotted</div>
+                    </div>
+                  </div>
+                </div>
               </div>
-              <div class="border-b border-[rgba(255,255,255,0.08)]" style="padding:14px 16px;">
-                <span class="font-semibold" style="color:#f0f0f0;">Effects</span>
+
+              <!-- Effects (collapsed) -->
+              <div style="border-bottom:1px solid #333333;">
+                <div class="flex items-center" style="height:40px;padding:0 16px;gap:8px;">
+                  <span style="color:#ffffff;font-size:12px;font-weight:600;">Effects</span>
+                  <span class="flex-1"></span>
+                  <div class="w-6 h-6 flex items-center justify-center rounded shrink-0" style="color:#787878;">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/><circle cx="5" cy="12" r="1"/></svg>
+                  </div>
+                </div>
               </div>
-              <div class="border-b border-[rgba(255,255,255,0.08)]" style="padding:14px 16px;">
-                <span class="font-semibold" style="color:#f0f0f0;">Transform</span>
+              <!-- Transform (collapsed) -->
+              <div style="border-bottom:1px solid #333333;">
+                <div class="flex items-center" style="height:40px;padding:0 16px;gap:8px;">
+                  <span style="color:#ffffff;font-size:12px;font-weight:600;">Transform</span>
+                  <span class="flex-1"></span>
+                  <div class="w-6 h-6 flex items-center justify-center rounded shrink-0" style="color:#787878;">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/><circle cx="5" cy="12" r="1"/></svg>
+                  </div>
+                </div>
               </div>
-              <div class="border-b border-[rgba(255,255,255,0.08)]" style="padding:14px 16px;">
-                <span class="font-semibold" style="color:#f0f0f0;">Transition</span>
+              <!-- Transition (collapsed) -->
+              <div style="border-bottom:1px solid #333333;">
+                <div class="flex items-center" style="height:40px;padding:0 16px;gap:8px;">
+                  <span style="color:#ffffff;font-size:12px;font-weight:600;">Transition</span>
+                  <span class="flex-1"></span>
+                  <div class="w-6 h-6 flex items-center justify-center rounded shrink-0" style="color:#787878;">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/><circle cx="5" cy="12" r="1"/></svg>
+                  </div>
+                </div>
               </div>
-              <div style="padding:14px 16px;">
-                <span class="font-semibold" style="color:#f0f0f0;">Classes</span>
+              <!-- Output -->
+              <div>
+                <div class="flex items-center" style="height:40px;padding:0 16px;gap:8px;">
+                  <span style="color:#ffffff;font-size:12px;font-weight:600;">Output</span>
+                </div>
               </div>
             </div>
           </div>
@@ -392,7 +433,7 @@
       </div>
 
       <!-- Claude Code terminal -->
-      <div id="mockup-terminal" class="absolute rounded-lg border border-[#2a2a2e] shadow-2xl shadow-black/80 overflow-hidden" style="z-index: 10; bottom:16px; left:-20px; width: min(420px, calc(100% - 16px)); will-change: transform;">
+      <div id="mockup-terminal" class="absolute rounded-lg shadow-2xl shadow-black/80 overflow-hidden" style="border:1px solid #3a3a3a; z-index: 10; bottom:16px; left:-20px; width: min(420px, calc(100% - 16px)); will-change: transform;">
         <div class="bg-[#141416] border-b border-white/[0.06] flex items-center justify-center relative" style="height:34px;">
           <div class="absolute flex gap-2" style="left:12px;">
             <div class="w-2.5 h-2.5 rounded-full bg-white/[0.12]"></div>
@@ -417,20 +458,20 @@
   <section class="py-24 px-6">
     <div class="max-w-4xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
       <div>
-        <p class="text-sm font-medium" style="color:#999;">Real output</p>
-        <p class="text-sm mt-1.5 leading-relaxed" style="color:#555;">No translation layer, no compiled output. What you see on canvas is what you ship. Pure HTML + CSS.</p>
+        <p class="text-sm font-medium" style="color:#aaa;">No middle man</p>
+        <p class="text-sm mt-1.5 leading-relaxed" style="color:#666;">Your designs are the implementation. Real HTML, real CSS, real Tailwind. No rebuild, no translation layer.</p>
       </div>
       <div>
-        <p class="text-sm font-medium" style="color:#999;">AI-native</p>
-        <p class="text-sm mt-1.5 leading-relaxed" style="color:#555;">Built for AI agents from day one. Claude, Cursor, or any MCP client builds layouts directly on canvas.</p>
+        <p class="text-sm font-medium" style="color:#aaa;">Built for you and agents</p>
+        <p class="text-sm mt-1.5 leading-relaxed" style="color:#666;">Design by hand or connect Claude, Cursor, or any AI agent via MCP. You and agents are both first-class citizens.</p>
       </div>
       <div>
-        <p class="text-sm font-medium" style="color:#999;">Bidirectional</p>
-        <p class="text-sm mt-1.5 leading-relaxed" style="color:#555;">Design visually, get real Tailwind tokens. Responsive breakpoints with overrides. Paste classes back, keep designing.</p>
+        <p class="text-sm font-medium" style="color:#aaa;">Familiar yet new</p>
+        <p class="text-sm mt-1.5 leading-relaxed" style="color:#666;">Everything on the web is a box. A layout model you already know, powered by the stack you already use.</p>
       </div>
       <div>
-        <p class="text-sm font-medium" style="color:#999;">Components</p>
-        <p class="text-sm mt-1.5 leading-relaxed" style="color:#555;">Save any frame as a reusable component with named slots. Export libraries to share across projects.</p>
+        <p class="text-sm font-medium" style="color:#aaa;">Free and open source</p>
+        <p class="text-sm mt-1.5 leading-relaxed" style="color:#666;">Native macOS app built with Tauri. No subscriptions, no cloud dependency. Your files, your rules.</p>
       </div>
     </div>
   </section>
@@ -438,77 +479,33 @@
   <!-- FOOTER -->
   <footer class="py-8 px-6">
     <div class="max-w-6xl mx-auto flex items-center justify-between">
-      <span class="text-white/15 text-sm">© 2026 Caja</span>
-      <div class="flex items-center gap-5 text-sm text-white/20">
+      <span class="text-sm" style="color:#666;">© 2026 Caja</span>
+      <div class="flex items-center gap-5 text-sm" style="color:#666;">
         <a href="https://docs.getcaja.app" class="hover:text-white/50 transition-colors">Docs</a>
         <a href="https://github.com/getcaja/caja" class="hover:text-white/50 transition-colors">GitHub</a>
       </div>
     </div>
   </footer>
 
-  <!-- SYNCED DEMO -->
+  <!-- SYNCED CANVAS + TERMINAL -->
   <script>
   (function () {
     var $ = function(id) { return document.getElementById(id); };
+    var frame = $('canvas-frame'), title = $('canvas-title');
     var lines = $('terminal-lines'), cursor = $('terminal-cursor');
-    var tree = $('mock-tree'), treeBody = $('tree-body');
-    var canvasInner = $('canvas-inner'), canvasFrame = $('canvas-frame');
-    var propsName = $('props-name'), propsBadge = $('props-badge');
-    var propsP = $('props-p'), propsW = $('props-w'), propsH = $('props-h');
-    var propsFill = $('props-fill'), propsSwatch = $('props-swatch'), propsRadius = $('props-radius');
 
-    var SEL_BG = 'rgba(12,140,233,0.15)';
-    var SEL_COLOR = '#6bb8f0';
-    var UNSEL_COLOR = 'rgba(255,255,255,0.35)';
-
-    function addTreeNode(name, icon, depth, sel, breakpoints) {
-      var d = document.createElement('div');
-      d.className = 'flex items-center gap-1 rounded mock-node';
-      d.style.cssText = 'padding:4px 8px;padding-left:' + (16 + depth * 12) + 'px;opacity:0;transition:opacity 0.3s ease;';
-      if (sel) { d.style.background = SEL_BG; d.style.color = SEL_COLOR; }
-      else { d.style.color = UNSEL_COLOR; }
-      var ic = {
-        box: '<line x1="22" x2="2" y1="6" y2="6"/><line x1="22" x2="2" y1="18" y2="18"/><line x1="6" x2="6" y1="2" y2="22"/><line x1="18" x2="18" y1="2" y2="22"/>',
-        text: '<path d="M4 7V4h16v3"/><path d="M9 20h6"/><path d="M12 4v16"/>',
-        button: '<rect x="3" y="3" width="18" height="18" rx="2"/>'
-      };
-      var pills = '';
-      if (breakpoints) {
-        breakpoints.forEach(function(bp) {
-          pills += ' <span style="padding:0 3px;font-size:9px;line-height:14px;font-weight:500;border-radius:3px;background:rgba(255,255,255,0.08);color:#717171;">' + bp + '</span>';
-        });
-      }
-      d.innerHTML = '<div class="w-4 h-4 flex items-center justify-center shrink-0"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">' + (ic[icon] || ic.box) + '</svg></div> ' + name + pills;
-      tree.appendChild(d);
-      requestAnimationFrame(function() { d.style.opacity = '1'; });
-      return d;
+    function setText(text, color) {
+      title.style.opacity = '0';
+      setTimeout(function() {
+        title.textContent = text;
+        title.style.color = color || title.style.color;
+        title.style.opacity = '1';
+      }, 500);
     }
 
-    function selectNode(node) {
-      // Deselect all (including Body)
-      treeBody.style.background = 'transparent'; treeBody.style.color = UNSEL_COLOR;
-      tree.querySelectorAll('.mock-node').forEach(function(n) {
-        n.style.background = 'transparent'; n.style.color = UNSEL_COLOR;
-      });
-      if (node) { node.style.background = SEL_BG; node.style.color = SEL_COLOR; }
-    }
-
-    function selectBody() {
-      tree.querySelectorAll('.mock-node').forEach(function(n) {
-        n.style.background = 'transparent'; n.style.color = UNSEL_COLOR;
-      });
-      treeBody.style.background = SEL_BG; treeBody.style.color = SEL_COLOR;
-    }
-
-    function setProps(opts) {
-      if (opts.name) propsName.textContent = opts.name;
-      if (opts.badge) propsBadge.textContent = opts.badge;
-      if (opts.p !== undefined) propsP.textContent = opts.p;
-      if (opts.w) propsW.textContent = opts.w;
-      if (opts.h) propsH.textContent = opts.h;
-      if (opts.fill) propsFill.textContent = opts.fill;
-      if (opts.swatch) { propsSwatch.style.background = opts.swatch; }
-      if (opts.radius !== undefined) propsRadius.textContent = opts.radius;
+    function setCanvas(bg, textColor) {
+      frame.style.background = bg;
+      title.style.color = textColor;
     }
 
     function addLine(cls, html) {
@@ -524,302 +521,79 @@
       })();
     }
 
-    function fadeIn(el) {
-      el.style.opacity = '0'; el.style.transition = 'opacity 0.4s ease';
-      requestAnimationFrame(function() { el.style.opacity = '1'; });
+    function mcp(next) {
+      addLine('','<span class="inline-block w-1.5 h-1.5 rounded-full mr-1.5 align-middle" style="background:#33ff0040;"></span><span style="color:#33ff0055;">caja \u2013 batch_update (MCP)</span>');
+      setTimeout(next, 500);
     }
 
-    function mcpFlash(el) {
-      el.classList.add('mcp-flash');
-      setTimeout(function() { el.classList.remove('mcp-flash'); }, 800);
+    function prompt(text, cb) {
+      typeText(text, function(t) {
+        addLine('mb-1','<span style="color:#33ff00aa;">$</span> <span style="color:#33ff00;">'+t+'</span>');
+        setTimeout(cb, 400);
+      });
     }
 
-    var PILL = function(bp) { return ' <span style="padding:0 3px;font-size:9px;line-height:14px;font-weight:500;border-radius:3px;background:rgba(255,255,255,0.08);color:#717171;">'+bp+'</span>'; };
-    var mockCursor = $('mock-cursor');
-
-    function showCursor(x, y, cb) {
-      mockCursor.style.opacity = '1';
-      mockCursor.style.left = x + 'px'; mockCursor.style.top = y + 'px';
-      setTimeout(cb, 900);
-    }
-    function hideCursor() { mockCursor.style.opacity = '0'; }
-    function clickEffect(x, y) {
-      var ring = document.createElement('div');
-      ring.className = 'click-ring';
-      ring.style.left = (x - 18) + 'px'; ring.style.top = (y - 18) + 'px';
-      canvasFrame.parentElement.appendChild(ring);
-      setTimeout(function() { ring.remove(); }, 500);
-    }
-
+    // ═══ SEQUENCE ═══
     var script = [
-      // ═══ 1. BUILD ═══
-      { type: 'prompt', text: 'build a website for my gummy bears company' },
-
-      // Nav
-      { type: 'tool', text: 'caja – add_frame (MCP)', sync: function() {
-        canvasInner.style.display = 'block';
-        canvasInner.innerHTML =
-          '<div id="cv-page" style="display:flex;flex-direction:column;min-height:100%;width:100%;">' +
-            '<div id="cv-nav" style="display:flex;justify-content:space-between;align-items:center;padding:14px 20px;">' +
-              '<span id="cv-logo" style="font-weight:700;font-size:8px;color:#111;letter-spacing:-0.2px;">Gummy Co.</span>' +
-              '<div id="cv-nav-links" style="display:flex;gap:12px;font-size:6px;color:#bbb;align-items:center;">' +
-                '<span>Flavors</span><span>About</span>' +
-                '<span id="cv-nav-shop" style="color:#111;font-weight:500;">Shop</span>' +
-              '</div>' +
-            '</div>' +
-          '</div>';
-        mcpFlash($('cv-nav'));
-        var n = addTreeNode('nav', 'box', 1, true); selectNode(n);
-        addTreeNode('logo', 'text', 2);
-        addTreeNode('nav-links', 'box', 2);
-        setProps({ name:'nav', badge:'box', p:'3.5 5', w:'Auto', h:'Auto', fill:'white', swatch:'white', radius:'0' });
-      }},
-      { type: 'result', text: '  Added nav with logo and links.' },
-
-      // Hero — left-aligned, dramatic type scale
-      { type: 'tool', text: 'caja – batch_update (MCP)', sync: function() {
-        var page = $('cv-page');
-        var hero = document.createElement('div'); hero.id = 'cv-hero';
-        hero.style.cssText = 'padding:16px 20px 20px;text-align:center;display:flex;flex-direction:column;align-items:center;';
-        hero.innerHTML =
-          '<div id="cv-h" style="font-weight:800;font-size:26px;color:#111;line-height:0.93;letter-spacing:-0.8px;transition:font-size 0.5s ease;">Life is sweeter<br>with Gummy Bears</div>' +
-          '<div id="cv-sub" style="font-size:6.5px;color:#999;margin-top:10px;line-height:1.6;">Real fruit juice. Monk fruit sweetened.<br>No artificial anything.</div>' +
-          '<div id="cv-btn1" style="margin-top:10px;display:inline-block;font-size:5.5px;font-weight:600;padding:5px 16px;background:#111;color:#fff;letter-spacing:-0.2px;border-radius:9999px;transition:all 0.4s ease;">Shop now</div>';
-        page.appendChild(hero); fadeIn(hero); mcpFlash(hero);
-        var n = addTreeNode('hero', 'box', 1, true); selectNode(n);
-        addTreeNode('heading', 'text', 2);
-        addTreeNode('subtitle', 'text', 2);
-        addTreeNode('cta', 'button', 2);
-        setProps({ name:'hero', badge:'box', p:'4 5', fill:'white', swatch:'white', radius:'0' });
-      }},
-      { type: 'result', text: '  Hero section with heading and CTA.' },
-
-      // Flavors — full-width color strips
-      { type: 'tool', text: 'caja – batch_update (MCP)', sync: function() {
-        var page = $('cv-page');
-        var flav = document.createElement('div'); flav.id = 'cv-flavors';
-        flav.style.cssText = 'display:flex;gap:3px;padding:10px 20px 0;';
-        flav.innerHTML =
-          '<div id="cv-fl-straw" style="flex:1;height:150px;background:#dc2626;display:flex;justify-content:center;align-items:center;border-radius:3px;">' +
-            '<span style="font-size:18px;line-height:1;">🍓</span>' +
-          '</div>' +
-          '<div style="flex:1;height:150px;background:#eab308;display:flex;justify-content:center;align-items:center;border-radius:3px;">' +
-            '<span style="font-size:18px;line-height:1;">🍋</span>' +
-          '</div>' +
-          '<div style="flex:1;height:150px;background:#2563eb;display:flex;justify-content:center;align-items:center;border-radius:3px;">' +
-            '<span style="font-size:18px;line-height:1;">🫐</span>' +
-          '</div>';
-        page.appendChild(flav); fadeIn(flav); mcpFlash(flav);
-        var n = addTreeNode('flavors', 'box', 1, true); selectNode(n);
-        setProps({ name:'flavors', badge:'box', p:'0', fill:'red-600', swatch:'#dc2626', radius:'0' });
-      }},
-      { type: 'result', text: '  3 product cards with brand colors.' },
-
-      // Features — 4-column grid
-      { type: 'tool', text: 'caja – add_frame (MCP)', sync: function() {
-        var page = $('cv-page');
-        var feat = document.createElement('div'); feat.id = 'cv-features';
-        feat.style.cssText = 'display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:8px;padding:24px 20px;';
-        feat.innerHTML =
-          '<div style="padding-top:0;"><div class="cv-ft" style="font-size:5.5px;font-weight:600;color:#111;">Monk fruit</div><div class="cv-fd" style="font-size:5px;color:#999;margin-top:3px;line-height:1.6;">Sweetened naturally with monk fruit. No cane sugar, no corn syrup, no artificial sweeteners.</div></div>' +
-          '<div style="padding-top:0;"><div class="cv-ft" style="font-size:5.5px;font-weight:600;color:#111;">Real juice</div><div class="cv-fd" style="font-size:5px;color:#999;margin-top:3px;line-height:1.6;">Every flavor starts with real fruit juice. No concentrates, no artificial colors.</div></div>' +
-          '<div style="padding-top:0;"><div class="cv-ft" style="font-size:5.5px;font-weight:600;color:#111;">Plant-based</div><div class="cv-fd" style="font-size:5px;color:#999;margin-top:3px;line-height:1.6;">We use plant-based gelatin so every gummy is 100% vegan friendly.</div></div>' +
-          '<div style="padding-top:0;"><div class="cv-ft" style="font-size:5.5px;font-weight:600;color:#111;">Gluten free</div><div class="cv-fd" style="font-size:5px;color:#999;margin-top:3px;line-height:1.6;">Certified gluten free and Non-GMO project verified. Safe for everyone.</div></div>';
-        page.appendChild(feat); fadeIn(feat); mcpFlash(feat);
-        var n = addTreeNode('features', 'box', 1, true); selectNode(n);
-        setProps({ name:'features', badge:'box', p:'4 5', fill:'white', swatch:'white', radius:'0' });
-      }},
-      { type: 'result', text: '  Features grid — 4 columns.' },
-
-      // Footer
-      { type: 'tool', text: 'caja – add_frame (MCP)', sync: function() {
-        var page = $('cv-page');
-        var ft = document.createElement('div'); ft.id = 'cv-footer';
-        ft.style.cssText = 'padding:12px 20px;border-top:1px solid #eee;display:flex;justify-content:space-between;align-items:center;';
-        ft.innerHTML =
-          '<span id="cv-ft-text" style="font-size:5px;color:#ccc;">© 2026 Gummy Co.</span>' +
-          '<span id="cv-ft-top" style="font-size:5px;color:#ccc;">Back to top</span>';
-        page.appendChild(ft); fadeIn(ft); mcpFlash(ft);
-        var n = addTreeNode('footer', 'box', 1, true); selectNode(n);
-        setProps({ name:'footer', badge:'box', p:'3 5', fill:'white', swatch:'white', radius:'0' });
-      }},
-      { type: 'result', text: '  Footer with copyright.' },
-      { type: 'done', text: 'Looking good! Your gummy bears site is ready. I added a nav, hero with a big headline, product showcase, features section, and footer.' },
-
-      // ═══ 2. DARK ═══
-      { type: 'pause', ms: 2000 },
-      { type: 'prompt', text: 'make it dark' },
-      { type: 'tool', text: 'caja – batch_update (MCP)', sync: function() {
-        $('cv-page').style.background = '#0c0c0e';
-        $('cv-logo').style.color = '#f0f0f0';
-        $('cv-nav-links').style.color = '#444';
-        $('cv-nav-shop').style.color = '#f0f0f0';
-        $('cv-h').style.color = '#f0f0f0';
-        $('cv-sub').style.color = '#555';
-        var btn = $('cv-btn1'); btn.style.background = '#f0f0f0'; btn.style.color = '#0c0c0e';
-        document.querySelectorAll('.cv-ft').forEach(function(d){ d.style.color = '#ccc'; });
-        document.querySelectorAll('.cv-fd').forEach(function(d){ d.style.color = '#555'; });
-        $('cv-footer').style.borderColor = '#1a1a1e';
-        $('cv-ft-text').style.color = '#2a2a2e';
-        $('cv-ft-top').style.color = '#2a2a2e';
-        mcpFlash($('cv-page'));
-        var nodes = tree.querySelectorAll('.mock-node'); if(nodes[0]) selectNode(nodes[0]);
-        setProps({ name:'nav', fill:'zinc-950', swatch:'#0c0c0e' });
-      }},
-      { type: 'result', text: '  Swapped to dark palette.' },
-      { type: 'done', text: 'Done — dark background with light text. The color blocks still pop nicely against it.' },
-
-      // ═══ 3. RESPONSIVE ═══
-      { type: 'pause', ms: 2000 },
-      { type: 'prompt', text: 'make it responsive' },
-      { type: 'tool', text: 'caja – batch_update (MCP)', sync: function() {
-        canvasFrame.style.inset = '0'; canvasFrame.style.width = '55%'; canvasFrame.style.margin = '0 auto';
-        $('cv-flavors').style.flexDirection = 'column'; $('cv-flavors').querySelectorAll('div').forEach(function(d){ d.style.flex = 'none'; });
-        $('cv-features').style.gridTemplateColumns = '1fr 1fr';
-        var nodes = tree.querySelectorAll('.mock-node');
-        // nav[0], hero[3], flavors[7]
-        if(nodes[0]) { nodes[0].innerHTML += PILL('sm'); mcpFlash(nodes[0]); }
-        if(nodes[3]) { nodes[3].innerHTML += PILL('md') + PILL('sm'); mcpFlash(nodes[3]); }
-        if(nodes[7]) { nodes[7].innerHTML += PILL('sm'); mcpFlash(nodes[7]); }
-        selectNode(nodes[3]);
-        setProps({ name:'hero', p:'4 4' });
-      }},
-      { type: 'result', text: '  Added breakpoint overrides.' },
-      { type: 'done', text: 'Responsive! Stacked the products and collapsed the grid on small screens.' },
-
-      // ═══ 4. CURSOR (human touch, mobile view) ═══
-      { type: 'pause', ms: 2500 },
-
-      // Cursor 1: click heading, bump size 26→30px
-      { type: 'cursor', sync: function() {
-        mockCursor.style.transition = 'none';
-        mockCursor.style.left = '80%'; mockCursor.style.top = '10%';
-        mockCursor.style.opacity = '1';
-        requestAnimationFrame(function() {
-          mockCursor.style.transition = 'top 0.8s cubic-bezier(0.4,0,0.2,1), left 0.8s cubic-bezier(0.4,0,0.2,1), opacity 0.3s ease';
-          var h = $('cv-h');
-          var rect = h.getBoundingClientRect();
-          var parentRect = canvasFrame.parentElement.getBoundingClientRect();
-          var cx = rect.left - parentRect.left + rect.width * 0.3;
-          var cy = rect.top - parentRect.top + rect.height * 0.4;
-          mockCursor.style.left = cx + 'px'; mockCursor.style.top = cy + 'px';
-          setTimeout(function() {
-            clickEffect(cx, cy);
-            var nodes = tree.querySelectorAll('.mock-node');
-            if(nodes[4]) selectNode(nodes[4]);
-            h.style.outline = '2px solid #0c8ce9'; h.style.outlineOffset = '-1px';
-            setProps({ name:'heading', badge:'text', p:'0', fill:'transparent', swatch:'transparent' });
-            setTimeout(function() {
-              h.style.fontSize = '30px';
-            }, 600);
-          }, 900);
+      // 1. "make something awesome"
+      function(next) {
+        prompt('make something awesome', function() {
+          mcp(function() {
+            setText('Look mum, running on HTML.', '#111');
+            setTimeout(next, 2500);
+          });
         });
-      }},
-
-      // Cursor 2: glide below CTA, add a new "Learn more" button
-      { type: 'pause', ms: 2800 },
-      { type: 'cursor', sync: function() {
-        $('cv-h').style.outline = 'none';
-        var btn = $('cv-btn1');
-        var rect = btn.getBoundingClientRect();
-        var parentRect = canvasFrame.parentElement.getBoundingClientRect();
-        var cx = rect.left - parentRect.left + rect.width / 2;
-        var cy = rect.bottom - parentRect.top + 12;
-        mockCursor.style.left = cx + 'px'; mockCursor.style.top = cy + 'px';
-        setTimeout(function() {
-          clickEffect(cx, cy);
-          var link = document.createElement('div');
-          link.id = 'cv-link1';
-          link.style.cssText = 'display:inline-block;font-size:5.5px;font-weight:600;color:#666;padding:5px 16px;background:#e5e5e5;border-radius:9999px;margin-top:4px;';
-          link.textContent = 'Learn more';
-          $('cv-hero').appendChild(link);
-          mcpFlash(link);
-          var n = addTreeNode('learn-more', 'text', 2, true);
-          selectNode(n);
-          setProps({ name:'learn-more', badge:'text', p:'0', fill:'transparent', swatch:'transparent' });
-        }, 900);
-      }},
-
-      // Cursor 3: round the flavor boxes
-      { type: 'pause', ms: 2800 },
-      { type: 'cursor', sync: function() {
-        mockCursor.style.opacity = '1';
-        var straw = $('cv-fl-straw');
-        var rect = straw.getBoundingClientRect();
-        var parentRect = canvasFrame.parentElement.getBoundingClientRect();
-        var cx = rect.left - parentRect.left + rect.width / 2;
-        var cy = rect.top - parentRect.top + rect.height / 2;
-        mockCursor.style.left = cx + 'px'; mockCursor.style.top = cy + 'px';
-        setTimeout(function() {
-          clickEffect(cx, cy);
-          var nodes = tree.querySelectorAll('.mock-node');
-          if(nodes[7]) selectNode(nodes[7]);
-          straw.style.outline = '2px solid #0c8ce9'; straw.style.outlineOffset = '-1px';
-          setProps({ name:'flavors', badge:'box', p:'0', fill:'red-600', swatch:'#dc2626', radius:'3' });
-          setTimeout(function() {
-            $('cv-flavors').querySelectorAll('div').forEach(function(d){ d.style.borderRadius = '12px'; });
-            setProps({ radius:'12' });
+      },
+      // 2. "now add some css sparkle"
+      function(next) {
+        prompt('now add some css sparkle', function() {
+          mcp(function() {
+            setText('Tailwind \u2764', '#111');
+            setTimeout(next, 2000);
+          });
+        });
+      },
+      // 3. "make it pop"
+      function(next) {
+        prompt('make it pop', function() {
+          mcp(function() {
+            setCanvas('#ef4444', '#ffffff');
+            setTimeout(next, 2500);
+          });
+        });
+      },
+      // 4. "now make it dark"
+      function(next) {
+        prompt('now make it dark', function() {
+          mcp(function() {
+            title.style.opacity = '0';
+            setCanvas('#000000', '#000000');
+            setTimeout(next, 2500);
+          });
+        });
+      },
+      // 5. "no wait!"
+      function(next) {
+        prompt('no wait!', function() {
+          mcp(function() {
+            setCanvas('white', '#111');
+            setText('Gotcha ;)', '#111');
             setTimeout(function() {
-              straw.style.outline = 'none';
-            }, 800);
-          }, 600);
-        }, 900);
-      }},
-
-      // Cursor 4: change lemon color to a warmer tone
-      { type: 'pause', ms: 2800 },
-      { type: 'cursor', sync: function() {
-        mockCursor.style.opacity = '1';
-        var blocks = $('cv-flavors').querySelectorAll('div');
-        var lemon = blocks[1];
-        var rect = lemon.getBoundingClientRect();
-        var parentRect = canvasFrame.parentElement.getBoundingClientRect();
-        var cx = rect.left - parentRect.left + rect.width / 2;
-        var cy = rect.top - parentRect.top + rect.height / 2;
-        mockCursor.style.left = cx + 'px'; mockCursor.style.top = cy + 'px';
-        setTimeout(function() {
-          clickEffect(cx, cy);
-          lemon.style.outline = '2px solid #0c8ce9'; lemon.style.outlineOffset = '-1px';
-          setProps({ name:'lemon', fill:'amber-500', swatch:'#eab308', radius:'12' });
-          setTimeout(function() {
-            lemon.style.background = '#f59e0b';
-            setProps({ fill:'amber-400', swatch:'#f59e0b' });
-            setTimeout(function() {
-              lemon.style.outline = 'none';
-              hideCursor();
-            }, 1200);
-          }, 700);
-        }, 900);
-      }},
-
-      // ═══ RESET with fade ═══
-      { type: 'pause', ms: 3500 },
-      { type: 'clear', sync: function() {
-        hideCursor();
-        canvasFrame.style.opacity = '0';
-        setTimeout(function() {
-          tree.querySelectorAll('.mock-node').forEach(function(n){n.remove();});
-          selectBody();
-          canvasInner.style.display = ''; canvasInner.innerHTML = '';
-          canvasFrame.style.inset = '0'; canvasFrame.style.width = ''; canvasFrame.style.margin = '';
-          canvasFrame.style.background = 'white';
-          setProps({ name:'Body', badge:'box', p:'0', w:'Auto', h:'Auto', fill:'white', swatch:'white', radius:'0' });
-          canvasFrame.style.opacity = '1';
-        }, 600);
-      }},
+              lines.innerHTML = '';
+              title.style.opacity = '0';
+              setTimeout(next, 800);
+            }, 2000);
+          });
+        });
+      },
     ];
 
     var idx = 0;
     function run() {
-      if (idx >= script.length) idx = 0;
-      var s = script[idx++];
-      if (s.type === 'clear') { lines.innerHTML = ''; if(s.sync)s.sync(); setTimeout(run, 1500); }
-      else if (s.type === 'pause') { setTimeout(run, s.ms); }
-      else if (s.type === 'prompt') { if(s.sync)s.sync(); typeText(s.text, function(t) { addLine('mb-1','<span style="color:#33ff00aa;">$</span> <span style="color:#33ff00;">'+t+'</span>'); setTimeout(run,700); }); }
-      else if (s.type === 'tool') { if(s.sync)s.sync(); addLine('','<span class="inline-block w-1.5 h-1.5 rounded-full mr-1.5 align-middle" style="background:#33ff0040;"></span><span style="color:#33ff0055;">'+s.text+'</span>'); setTimeout(run,500); }
-      else if (s.type === 'result') { if(s.sync)s.sync(); addLine('ml-3','<span style="color:#33ff0033;">'+s.text+'</span>'); setTimeout(run,450); }
-      else if (s.type === 'done') { if(s.sync)s.sync(); addLine('mt-1 mb-1','<span style="color:#33ff0077;">'+s.text+'</span>'); setTimeout(run,1000); }
-      else if (s.type === 'cursor') { if(s.sync)s.sync(); setTimeout(run, 100); }
+      script[idx](function() {
+        idx = (idx + 1) % script.length;
+        run();
+      });
     }
     setTimeout(run, 1800);
   })();
